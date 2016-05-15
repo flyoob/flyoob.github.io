@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>树莓派初次使用的基本配置 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+        <link rel="icon" href="/assets/images/favicon.png">
+    
+    
+    <meta name="description" content="记录了一下树莓派初次使用的配置过程，包括装系统、修改 IP 等等。">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="树莓派初次使用的基本配置">
+<meta property="og:url" content="http://yoursite.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="记录了一下树莓派初次使用的配置过程，包括装系统、修改 IP 等等。">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/rapberrypi_1.jpg">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/win32diskimage.jpg">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/raspconfig.jpg">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/overclock.jpg">
+<meta property="og:updated_time" content="2016-05-15T05:06:43.060Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树莓派初次使用的基本配置">
+<meta name="twitter:description" content="记录了一下树莓派初次使用的配置过程，包括装系统、修改 IP 等等。">
+    
+    
+    
+        <meta property="og:image" content="/assets/images/avatar_01.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="1">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon st-search-show-outputs"
+                href="/#search">
+        
+                <i class="fa fa-lg fa-search"></i>
+            </a>
+    
+</header>
+            <nav id="sidebar" data-behavior="1">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                
+                    <img class="sidebar-profile-picture" src="/assets/images/avatar_01.png"/>
+                
+            </a>
+            <span class="sidebar-profile-name">John Doe</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Início</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorias</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bars"></i>
+                    <span class="sidebar-button-desc">Arquivo</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="/#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Pesquisar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-info-circle"></i>
+                    <span class="sidebar-button-desc">Sobre</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/kaedea" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github-square"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:kidhaibara@gmail.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="1"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            树莓派初次使用的基本配置
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Sun May 08 2016 17:05:23 GMT+0800">
+	
+		    08/05/2016
+    	
+    </time>
+    
+        <span>em </span>
+        
+    <a class="category-link" href="/categories/Linux笔记/">Linux笔记</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>记录了一下树莓派初次使用的配置过程，包括装系统、修改 IP 等等。<br><a id="more"></a></p>
+<p>树莓派（英语：Raspberry Pi），是一款基於 Linux 的单板机電腦。</p>
+<p>它由英國的树莓派基金會所開發，目的是以低價硬體及自由軟體刺激在学校的基本电脑科学教育。<br><img src="http://o71mbfad2.bkt.clouddn.com/rapberrypi_1.jpg" alt=""></p>
+<p>树莓派的维基百科[地址] ( <a href="https://zh.wikipedia.org/zh/树莓派" target="_blank" rel="external">https://zh.wikipedia.org/zh/树莓派</a> )</p>
+<h3 id="一、-给树莓派安装一个系统"><a href="#一、-给树莓派安装一个系统" class="headerlink" title="一、 给树莓派安装一个系统"></a>一、 给树莓派安装一个系统</h3><p>树莓派用作web服务器不需要太多桌面功能，因此选择安装 RASPBIAN JESSIE LITE。<br>RASPBIAN JESSIE LITE<a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external"> 2016-03-18-raspbian-jessie-lite.img </a><br>由于 pi 只能通过 SD 卡启动，所以使用 <code>Win32DiskImager</code> 这款小软件把我们的 image 刷到 SD 卡上：</p>
+<p><img src="http://o71mbfad2.bkt.clouddn.com/win32diskimage.jpg" alt=""><br>注意，初次使用时需要通过串口连接到树莓派，默认用户是 pi，密码为 raspberry，波特率 115200bps<br>推荐使用 <code>SecureCRT</code> 这款终端软件，连接成功后可以进行如下操作：</p>
+<p>使用 <code>df -h</code> 查看 pi 的文件系统使用情况，发现 16GB 的 SD 卡只用了 1.2GB</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Filesystem      Size  Used Avail Use% Mounted on&#10;/dev/root       1.2G  816M  290M  74% /&#10;devtmpfs        214M     0  214M   0% /dev&#10;tmpfs           218M     0  218M   0% /dev/shm&#10;tmpfs           218M  4.4M  214M   3% /run&#10;tmpfs           5.0M  4.0K  5.0M   1% /run/lock&#10;tmpfs           218M     0  218M   0% /sys/fs/cgroup&#10;/dev/mmcblk0p1   60M   20M   41M  34% /boot</span><br></pre></td></tr></table></figure>
+<p>使用 <code>cat /proc/cpuinfo</code> 查看 pi 的硬件信息：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">processor       : 0&#10;model name      : ARMv6-compatible processor rev 7 (v6l)&#10;BogoMIPS        : 2.00&#10;Features        : half thumb fastmult vfp edsp java tls &#10;CPU implementer : 0x41&#10;CPU architecture: 7&#10;CPU variant     : 0x0&#10;CPU part        : 0xb76&#10;CPU revision    : 7&#10;&#10;&#10;Hardware        : BCM2708&#10;Revision        : 000e&#10;Serial          : 00000000756cec5c</span><br></pre></td></tr></table></figure></p>
+<h3 id="二、-初次使用配置，扩展-SD-卡"><a href="#二、-初次使用配置，扩展-SD-卡" class="headerlink" title="二、 初次使用配置，扩展 SD 卡"></a>二、 初次使用配置，扩展 SD 卡</h3><p>执行 <code>sudo raspi-config</code> 进入配置界面：</p>
+<p><img src="http://o71mbfad2.bkt.clouddn.com/raspconfig.jpg" alt=""><br>按下 Enter 选项 1，扩展 SD 空间。树莓派安装完成后只用了一部分 SD 空间，所以这里要进行扩展。<br>此外，还可以进行一些其他配置，如：修改密码，启动选项超频等等，这里不再展开。<br>超频警告如下：<br><img src="http://o71mbfad2.bkt.clouddn.com/overclock.jpg" alt=""></p>
+<h3 id="三、-更换软件源（apt-get-sources）"><a href="#三、-更换软件源（apt-get-sources）" class="headerlink" title="三、 更换软件源（apt-get sources）"></a>三、 更换软件源（apt-get sources）</h3><p>树莓派的默认服务器比较慢，官方有提供一个镜像列表： <a href="http://www.raspbian.org/RaspbianMirrors" target="_blank" rel="external">http://www.raspbian.org/RaspbianMirrors</a><br>这里选择中科大的镜像，主页：<a href="https://lug.ustc.edu.cn/wiki/mirrors/help/raspbian" target="_blank" rel="external">https://lug.ustc.edu.cn/wiki/mirrors/help/raspbian</a><br>编辑 <code>/etc/apt/sources.list</code> 文件，这里推荐用 <code>nano</code> 命令编辑，因为树莓派默认安装的 Vim 还不好用，需要更新。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<p>进入编辑界面，删除掉原有的内容，粘贴中科大提供的网址，如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main non-free contrib&#10;deb-src http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main non-free contrib</span><br></pre></td></tr></table></figure></p>
+<p>使用 <code>Ctrl+O</code> 保存文件，<code>Ctrl+X</code> 退出编辑器，最后执行 <code>apt-get update</code> 命令更新软件列表</p>
+<h3 id="四、-配置静态IP地址"><a href="#四、-配置静态IP地址" class="headerlink" title="四、 配置静态IP地址"></a>四、 配置静态IP地址</h3><p>给树莓派设置一个静态 IP，省得 IP 变换又要重新找机器，记住 IP 地址，以后就可以直接通过网络连接了。</p>
+<p>使用 nano 编辑网络接口文件，如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/network/interfaces</span><br></pre></td></tr></table></figure>
+<p>进入编辑界面，找到 <code>iface eth0 inet manual</code> 那一行，把它改为如下内容：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iface eth0 inet static&#10;address 192.168.1.144&#10;netmask 255.255.255.0</span><br></pre></td></tr></table></figure></p>
+<p>（无需设置网关）</p>
+<p>有时候会提示先执行 <code>sudo systemctl daemon-reload</code>，按照系统提示操作即可。<br>以后就在树莓派与我们的电脑直连时，就可以通过上面这个 IP 来访问它了！<br>最后注意重启一下网卡：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/networking restart</span><br></pre></td></tr></table></figure></p>
+<p>执行<code>ifconfig</code>命令进行验证：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eth0      Link encap:Ethernet  HWaddr b8:27:eb:6c:ec:5c  &#10;          inet addr:192.168.1.144  Bcast:192.168.1.255  Mask:255.255.255.0&#10;          inet6 addr: fe80::551e:ca54:b61:2879/64 Scope:Link&#10;          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1&#10;          RX packets:615 errors:0 dropped:0 overruns:0 frame:0&#10;          TX packets:235 errors:0 dropped:0 overruns:0 carrier:0&#10;          collisions:0 txqueuelen:1000 &#10;          RX bytes:50633 (49.4 KiB)  TX bytes:42219 (41.2 KiB)&#10;&#10;&#10;lo        Link encap:Local Loopback  &#10;          inet addr:127.0.0.1  Mask:255.0.0.0&#10;          inet6 addr: ::1/128 Scope:Host&#10;          UP LOOPBACK RUNNING  MTU:65536  Metric:1&#10;          RX packets:452 errors:0 dropped:0 overruns:0 frame:0&#10;          TX packets:452 errors:0 dropped:0 overruns:0 carrier:0&#10;          collisions:0 txqueuelen:0 &#10;          RX bytes:36624 (35.7 KiB)  TX bytes:36624 (35.7 KiB)&#10;&#10;&#10;wlan0     Link encap:Ethernet  HWaddr e8:4e:06:20:03:7c  &#10;          UP BROADCAST MULTICAST  MTU:1500  Metric:1&#10;          RX packets:0 errors:0 dropped:4 overruns:0 frame:0&#10;          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0&#10;          collisions:0 txqueuelen:1000 &#10;          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)</span><br></pre></td></tr></table></figure></p>
+<p>树莓派的静态 IP 已经配置成功啦！</p>
+<h3 id="五、-最后结语"><a href="#五、-最后结语" class="headerlink" title="五、 最后结语"></a>五、 最后结语</h3><p>至此，树莓派几个基本配置已经做好了，接下来就准备好好折腾吧。</p>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/"  data-tooltip="树莓派配置 USB 无线网卡">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">PRÓXIMO</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至Google+" href="https://plus.google.com/share?url=http://yoursite.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+       
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至Twitter" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+
+         <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至新浪微博" href="http://www.jiathis.com/send/?webid=tsina&amp;appkey=&amp;uid=1850331&amp;url=http://yoursite.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/&amp;title=树莓派初次使用的基本配置">
+                <i class="fa fa-weibo"></i>
+            </a>
+        </li>
+
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/"  data-tooltip="树莓派配置 USB 无线网卡">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">PRÓXIMO</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至Google+" href="https://plus.google.com/share?url=http://yoursite.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+       
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至Twitter" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+
+         <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至新浪微博" href="http://www.jiathis.com/send/?webid=tsina&amp;appkey=&amp;uid=1850331&amp;url=http://yoursite.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/&amp;title=树莓派初次使用的基本配置">
+                <i class="fa fa-weibo"></i>
+            </a>
+        </li>
+
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="1">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/avatar_01.png"/>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Chiba Japan
+            </h5>
+        
+    </div>
+</div>
+
+        <div id="cover" style="background-image:url('http://7xih5c.com1.z0.glb.clouddn.com/15-10-7/29875909.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+
+
+</html>

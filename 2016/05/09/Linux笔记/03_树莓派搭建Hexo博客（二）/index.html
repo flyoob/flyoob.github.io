@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>树莓派搭建 Hexo 博客（二） - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+        <link rel="icon" href="/assets/images/favicon.png">
+    
+    
+    <meta name="description" content="Hexo 一个开源的博客框架，本文记录了一下在树莓派上搭建 Hexo 博客的过程。">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="树莓派搭建 Hexo 博客（二）">
+<meta property="og:url" content="http://yoursite.com/2016/05/09/Linux笔记/03_树莓派搭建Hexo博客（二）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hexo 一个开源的博客框架，本文记录了一下在树莓派上搭建 Hexo 博客的过程。">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/welcomnginx.jpg">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/filezillacfg.jpg">
+<meta property="og:updated_time" content="2016-05-15T05:06:43.088Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树莓派搭建 Hexo 博客（二）">
+<meta name="twitter:description" content="Hexo 一个开源的博客框架，本文记录了一下在树莓派上搭建 Hexo 博客的过程。">
+    
+    
+    
+        <meta property="og:image" content="/assets/images/avatar_01.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="1">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon st-search-show-outputs"
+                href="/#search">
+        
+                <i class="fa fa-lg fa-search"></i>
+            </a>
+    
+</header>
+            <nav id="sidebar" data-behavior="1">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                
+                    <img class="sidebar-profile-picture" src="/assets/images/avatar_01.png"/>
+                
+            </a>
+            <span class="sidebar-profile-name">John Doe</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Início</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorias</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bars"></i>
+                    <span class="sidebar-button-desc">Arquivo</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="/#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Pesquisar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-info-circle"></i>
+                    <span class="sidebar-button-desc">Sobre</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/kaedea" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github-square"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:kidhaibara@gmail.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="1"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            树莓派搭建 Hexo 博客（二）
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Mon May 09 2016 13:04:25 GMT+0800">
+	
+		    09/05/2016
+    	
+    </time>
+    
+        <span>em </span>
+        
+    <a class="category-link" href="/categories/Linux笔记/">Linux笔记</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>Hexo 一个开源的博客框架，本文记录了一下在树莓派上搭建 Hexo 博客的过程。<br><a id="more"></a></p>
+<p>上一篇介绍了 Hexo 的配置，现在网站已经能在本地访问了，也能通过 <code>hexo generate</code> 命令生成静态界面<br>当然，为了让别人可以访问到我们的站点，pi 还需要一个 Web 服务器，这边呢就选择 nginx。<br>同时把静态页面上传到我们的 pi 还需要在 pi 上安装 ftp 服务器，这里就选择 vsftpd。</p>
+<h3 id="一、-安装与配置-nginx"><a href="#一、-安装与配置-nginx" class="headerlink" title="一、 安装与配置 nginx"></a>一、 安装与配置 nginx</h3><p>直接通过镜像源安装，输入一下命令  <code>nginx version: nginx/1.2.1</code> ：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure></p>
+<p>测试配置文件准确性（nginx 自带）：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pi@raspberrypi:~/blog $ sudo nginx -t&#10;nginx: the configuration file /etc/nginx/nginx.conf syntax is ok&#10;nginx: configuration file /etc/nginx/nginx.conf test is successful</span><br></pre></td></tr></table></figure></p>
+<p>启动 nginx（注意要使用 sudo，Linux 只有 root 用户可以使用 1024 以下的端口）<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;sudo nginx</span><br></pre></td></tr></table></figure></p>
+<p>浏览器输入树莓派的 IP 地址：192.168.0.202，出现下面页面就成功啦</p>
+<p><img src="http://o71mbfad2.bkt.clouddn.com/welcomnginx.jpg" alt=""><br>nginx默认配置文件路径为  <code>/etc/nginx/sites-available/default</code>：<br>在其中我们看到，nginx 的默认网页目录设置为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/share/nginx/www</span><br></pre></td></tr></table></figure></p>
+<p>因此在 修改 为我们的静态页面文件夹：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/pi/lo_www</span><br></pre></td></tr></table></figure></p>
+<p>最后记住两个命令：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -s stop         # &#24555;&#36895;&#20851;&#38381;nginx&#10;&#10;sudo nginx -s reload       # &#37325;&#36733;&#37197;&#32622;&#25991;&#20214;</span><br></pre></td></tr></table></figure></p>
+<h3 id="二、-安装与配置-vsftpd"><a href="#二、-安装与配置-vsftpd" class="headerlink" title="二、 安装与配置 vsftpd"></a>二、 安装与配置 vsftpd</h3><p>输入如下命令安装 ftp 服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vsftpd</span><br></pre></td></tr></table></figure></p>
+<p>此时系统将自动创建 ftp 用户和 ftp 组，并建立 “/srv/ftp” 文件夹作为 ftp 用户的 HOME 目录。（如果想把FTP的目录放在 “/home/ftp”，可修改 “/etc/passwd” 文件中 ftp 用户的 HOME 目录位置。）</p>
+<p>修改下面的文件配置 ftp：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/vsftpd.conf</span><br></pre></td></tr></table></figure></p>
+<p>由于服务器只有我一个人使用和维护，所以不需要建立 vsftpd 虚拟用户，直接使用系统帐户登录（即SSH登录名密码来登录）FTP，那么配置文件中只需要开启如下几项即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listen=YES&#10;#  &#20851;&#38381;&#21311;&#21517;&#35775;&#38382;&#10;anonymous_enable=NO&#10;#  &#20801;&#35768;&#26412;&#22320;&#36134;&#21495;&#30331;&#38470;&#21644;&#20889;&#65306;&#10;local_enable=YES&#10;write_enable=YES&#10;local_umask=022&#10;local_root=/var/www&#10;max_clients=3&#10;dirmessage_enable=YES&#10;use_localtime=YES&#10;xferlog_enable=YES&#10;idle_session_timeout=600&#10;data_connection_timeout=120&#10;secure_chroot_dir=/var/run/vsftpd/empty&#10;pam_service_name=vsftpd&#10;rsa_cert_file=/etc/ssl/private/vsftpd.pem</span><br></pre></td></tr></table></figure></p>
+<p>其余配置参数全部用 “#” 注释掉，值得一提的是上述：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">local_root=/var/www&#10;max_clients=3</span><br></pre></td></tr></table></figure></p>
+<p>是原配置文件中没有，我额外添加的两项，第一项是将 FTP 客户端登录固定到 /var/www 目录，第二项是客户端连接最大数。<br>最后记住以下几个命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/vsftpd stop     # &#20851;&#38381;ftp&#10;&#10;sudo /etc/init.d/vsftpd restart  # &#21551;&#21160;ftp</span><br></pre></td></tr></table></figure></p>
+<p>使用 FileZilla 去连接的时候出现错误：<strong> vsftpd 不安全的服务器，不支持 FTP over TLS。</strong><br>解决办法：在 FileZilla 中配置不使用 TLS：<br><img src="http://o71mbfad2.bkt.clouddn.com/filezillacfg.jpg" alt=""><br>就可以把我们的静态文件上传到树莓派服务器啦~</p>
+<p>欢迎浏览本网站~</p>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/09/Linux笔记/04_Vim技巧菜（持续更新中）/"  data-tooltip="Vim 技巧菜（持续更新中）">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/Linux笔记/02_树莓派搭建Hexo博客（一）/" data-tooltip="树莓派搭建 Hexo 博客（一）">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">PRÓXIMO</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至Google+" href="https://plus.google.com/share?url=http://yoursite.com/2016/05/09/Linux笔记/03_树莓派搭建Hexo博客（二）/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+       
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至Twitter" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/05/09/Linux笔记/03_树莓派搭建Hexo博客（二）/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+
+         <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至新浪微博" href="http://www.jiathis.com/send/?webid=tsina&amp;appkey=&amp;uid=1850331&amp;url=http://yoursite.com/2016/05/09/Linux笔记/03_树莓派搭建Hexo博客（二）/&amp;title=树莓派搭建 Hexo 博客（二）">
+                <i class="fa fa-weibo"></i>
+            </a>
+        </li>
+
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/09/Linux笔记/04_Vim技巧菜（持续更新中）/"  data-tooltip="Vim 技巧菜（持续更新中）">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/Linux笔记/02_树莓派搭建Hexo博客（一）/" data-tooltip="树莓派搭建 Hexo 博客（一）">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">PRÓXIMO</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至Google+" href="https://plus.google.com/share?url=http://yoursite.com/2016/05/09/Linux笔记/03_树莓派搭建Hexo博客（二）/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+       
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至Twitter" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/05/09/Linux笔记/03_树莓派搭建Hexo博客（二）/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+
+         <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至新浪微博" href="http://www.jiathis.com/send/?webid=tsina&amp;appkey=&amp;uid=1850331&amp;url=http://yoursite.com/2016/05/09/Linux笔记/03_树莓派搭建Hexo博客（二）/&amp;title=树莓派搭建 Hexo 博客（二）">
+                <i class="fa fa-weibo"></i>
+            </a>
+        </li>
+
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="1">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/05/09/Linux笔记/03_树莓派搭建Hexo博客（二）/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/05/09/Linux笔记/03_树莓派搭建Hexo博客（二）/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/05/09/Linux笔记/03_树莓派搭建Hexo博客（二）/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/avatar_01.png"/>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Chiba Japan
+            </h5>
+        
+    </div>
+</div>
+
+        <div id="cover" style="background-image:url('http://7xih5c.com1.z0.glb.clouddn.com/15-10-7/29875909.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+
+
+</html>
