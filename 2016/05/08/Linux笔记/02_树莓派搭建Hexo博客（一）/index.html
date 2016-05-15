@@ -18,7 +18,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/05/08/Linux笔记/02_树莓派搭建Hexo博客（一）/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Hexo 一个开源的博客框架，本文记录了一下在树莓派上搭建 Hexo 博客的过程。">
-<meta property="og:updated_time" content="2016-05-15T05:06:43.080Z">
+<meta property="og:updated_time" content="2016-05-15T10:27:54.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派搭建 Hexo 博客（一）">
 <meta name="twitter:description" content="Hexo 一个开源的博客框架，本文记录了一下在树莓派上搭建 Hexo 博客的过程。">
@@ -198,7 +198,7 @@
 <p>使用<code>source /etc/profile</code>使环境变量生效，随后测试一下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pi@raspberrypi:~$ node -v&#10;v5.11.1&#10;pi@raspberrypi:~$ npm -v&#10;3.8.6</span><br></pre></td></tr></table></figure></p>
 <h3 id="二、-安装-Hexo"><a href="#二、-安装-Hexo" class="headerlink" title="二、 安装 Hexo"></a>二、 安装 Hexo</h3><p>只需要使用 npm 即可完成 Hexo 的安装（稍作等待）</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>有两个警告暂时无法解决：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm WARN optional Skipping failed optional dependency /hexo-cli/chokidar/fsevents:&#10;npm WARN notsup Not compatible with your operating system or architecture: fsevents@1.0.12</span><br></pre></td></tr></table></figure></p>
+<h1 id="g-代表全域安装-是全域安裝-跟你當前所在路徑無關"><a href="#g-代表全域安装-是全域安裝-跟你當前所在路徑無關" class="headerlink" title="-g 代表全域安装 是全域安裝, 跟你當前所在路徑無關"></a>-g 代表全域安装 是全域安裝, 跟你當前所在路徑無關</h1><p>有两个警告暂时无法解决：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm WARN optional Skipping failed optional dependency /hexo-cli/chokidar/fsevents:&#10;npm WARN notsup Not compatible with your operating system or architecture: fsevents@1.0.12</span><br></pre></td></tr></table></figure></p>
 <p>安装好后 <code>/usr/local/node/lib/node_modules</code> 目录下多了一个 <code>hexo-cli</code> 文件夹，随后测试一下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pi@raspberrypi:~/blog $ hexo -v&#10;hexo: 3.2.0&#10;hexo-cli: 1.0.1&#10;os: Linux 4.1.19+ linux arm&#10;http_parser: 2.7.0&#10;node: 5.11.1&#10;v8: 4.6.85.31&#10;uv: 1.8.0&#10;zlib: 1.2.8&#10;ares: 1.10.1-DEV&#10;icu: 56.1&#10;modules: 47&#10;openssl: 1.0.2h</span><br></pre></td></tr></table></figure></p>
 <h3 id="三、-建站"><a href="#三、-建站" class="headerlink" title="三、 建站"></a>三、 建站</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件（下载到 <code>node_modules</code>）</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir blog&#10;$ hexo init &#60;folder&#62;&#10;$ cd &#60;folder&#62;&#10;$ npm install</span><br></pre></td></tr></table></figure>
