@@ -1,22 +1,21 @@
 
 <!DOCTYPE html>
-<html lang="null">
+<html lang="zh-cn">
     
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hexo">
-    <title>Hexo 博客部署到 GitHub - Hexo</title>
-    <meta name="author" content="John Doe">
+    <meta name="generator" content="Flying Noob 笨鸟先飞早如林">
+    <title>Hexo 博客部署到 GitHub - Flying Noob 笨鸟先飞早如林</title>
+    <meta name="author" content="HuangLong">
     
-        <link rel="icon" href="/assets/images/favicon.png">
     
     
     <meta name="description" content="本文简单记录了一下把 Hexo 部署到 GitHub 上的过程，也是搭建静态博客最常用的一种方式。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Hexo 博客部署到 GitHub">
-<meta property="og:url" content="http://yoursite.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="http://flyoob.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/index.html">
+<meta property="og:site_name" content="Flying Noob 笨鸟先飞早如林">
 <meta property="og:description" content="本文简单记录了一下把 Hexo 部署到 GitHub 上的过程，也是搭建静态博客最常用的一种方式。">
 <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/create_a_new_repository.jpg">
 <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/create_ok.jpg">
@@ -29,44 +28,45 @@
 <meta name="twitter:description" content="本文简单记录了一下把 Hexo 部署到 GitHub 上的过程，也是搭建静态博客最常用的一种方式。">
     
     
+        
     
-        <meta property="og:image" content="/assets/images/avatar_01.png"/>
     
     
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style-27vrduj1jopliavvnzi7ibndpmbvg7lzo4a2uswrsi4m5vwauf2qi8s1v3or.min.css" type="text/css">
     <!--STYLES END-->
+    
     
 </head>
 
     <body>
         <div id="blog">
-            <header id="header" data-behavior="1">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
-        <a class="header-title-link" href="/ ">Hexo</a>
+        <a class="header-title-link" href="/ ">Flying Noob 笨鸟先飞早如林</a>
     </h1>
     
         
-            <a  class="header-right-icon st-search-show-outputs"
-                href="/#search">
+            <a  class="header-right-picture "
+                href="/#about">
         
-                <i class="fa fa-lg fa-search"></i>
-            </a>
+        
+        </a>
     
 </header>
-            <nav id="sidebar" data-behavior="1">
-    
-        <div class="sidebar-profile">
-            <a href="/#about">
-                
-                    <img class="sidebar-profile-picture" src="/assets/images/avatar_01.png"/>
-                
-            </a>
-            <span class="sidebar-profile-name">John Doe</span>
-        </div>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
     
     
         <ul class="sidebar-buttons">
@@ -79,7 +79,7 @@
                     >
                 
                     <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                    <span class="sidebar-button-desc">Início</span>
+                    <span class="sidebar-button-desc">首页</span>
                 </a>
         </li>
         
@@ -91,7 +91,19 @@
                     >
                 
                     <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-                    <span class="sidebar-button-desc">Categorias</span>
+                    <span class="sidebar-button-desc">分类</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">标签</span>
                 </a>
         </li>
         
@@ -102,8 +114,8 @@
                         
                     >
                 
-                    <i class="sidebar-button-icon fa fa-lg fa-bars"></i>
-                    <span class="sidebar-button-desc">Arquivo</span>
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">归档</span>
                 </a>
         </li>
         
@@ -115,19 +127,19 @@
                     >
                 
                     <i class="sidebar-button-icon fa fa-lg fa-search"></i>
-                    <span class="sidebar-button-desc">Pesquisar</span>
+                    <span class="sidebar-button-desc">搜索</span>
                 </a>
         </li>
         
             <li class="sidebar-button">
                 
                     <a  class="sidebar-button-link "
-                         href="/about"
+                         href="/#about"
                         
                     >
                 
-                    <i class="sidebar-button-icon fa fa-lg fa-info-circle"></i>
-                    <span class="sidebar-button-desc">Sobre</span>
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">关于</span>
                 </a>
         </li>
         
@@ -135,21 +147,19 @@
     
         <ul class="sidebar-buttons">
         
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link " href="https://github.com/kaedea" target="_blank">
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-github-square"></i>
-                    <span class="sidebar-button-desc">GitHub</span>
-                </a>
-        </li>
+    </ul>
+    
+        <ul class="sidebar-buttons">
         
             <li class="sidebar-button">
                 
-                    <a  class="sidebar-button-link " href="mailto:kidhaibara@gmail.com" target="_blank">
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
                 
-                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
-                    <span class="sidebar-button-desc">Mail</span>
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
                 </a>
         </li>
         
@@ -158,7 +168,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
@@ -175,13 +185,13 @@
     <div class="post-meta">
     <time itemprop="datePublished" content="Sun May 15 2016 10:08:49 GMT+0800">
 	
-		    15/05/2016
+		    5月 15, 2016
     	
     </time>
     
-        <span>em </span>
+        <span>发布在 </span>
         
-    <a class="category-link" href="/categories/Linux笔记/">Linux笔记</a>
+    <a class="category-link" href="/all-categories/Linux笔记/">Linux笔记</a>
 
 
     
@@ -206,12 +216,9 @@
 <p>3.最后在 GitHub Page 中的设置<br>在你本地的Hexo项目根目录下找到 source 目录，在 source 根目录下创建CNAME文件注：没有后缀）里面写入你要绑定的域名如： <code>flyoob.com</code>  保存退出即可，注意不要忘了 <code>git push</code> 一次，把这个文件同步到 GitHub。</p>
 
             
-                
-
-            
         </div>
     </div>
-    <div class="post-footer main-content-wrap">
+    <div id="post-footer" class="post-footer main-content-wrap">
         
         <div class="post-actions-wrap">
     <nav>
@@ -221,14 +228,14 @@
                     <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
                 </a>
             </li>
             <li class="post-action">
                 
                     <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/12/杂烩/00_关于这个博客/" data-tooltip="关于这个博客">
                 
-                    <span class="hide-xs hide-sm text-small icon-mr">PRÓXIMO</span>
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -241,29 +248,20 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至Google+" href="https://plus.google.com/share?url=http://yoursite.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
-       
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至Twitter" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
-
-         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至新浪微博" href="http://www.jiathis.com/send/?webid=tsina&amp;appkey=&amp;uid=1850331&amp;url=http://yoursite.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/&amp;title=Hexo 博客部署到 GitHub">
-                <i class="fa fa-weibo"></i>
-            </a>
-        </li>
-
-        
-            <li class="post-action">
-                <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                    <i class="fa fa-comment-o"></i>
-                </a>
-            </li>
         
         <li class="post-action">
             
@@ -277,6 +275,8 @@
 
 
         
+            
+        
     </div>
 </article>
 
@@ -284,13 +284,13 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2016 John Doe. All Rights Reserved.
+        Copyrights &copy; 2016 HuangLong. All Rights Reserved.
     </span>
 </footer>
 
             </div>
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
                     <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
@@ -299,14 +299,14 @@
                     <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
                 </a>
             </li>
             <li class="post-action">
                 
                     <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/12/杂烩/00_关于这个博客/" data-tooltip="关于这个博客">
                 
-                    <span class="hide-xs hide-sm text-small icon-mr">PRÓXIMO</span>
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -319,29 +319,20 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至Google+" href="https://plus.google.com/share?url=http://yoursite.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
-       
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至Twitter" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
-
-         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至新浪微博" href="http://www.jiathis.com/send/?webid=tsina&amp;appkey=&amp;uid=1850331&amp;url=http://yoursite.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/&amp;title=Hexo 博客部署到 GitHub">
-                <i class="fa fa-weibo"></i>
-            </a>
-        </li>
-
-        
-            <li class="post-action">
-                <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                    <i class="fa fa-comment-o"></i>
-                </a>
-            </li>
         
         <li class="post-action">
             
@@ -355,21 +346,21 @@
 
 
                 </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="1">
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
-                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
+                <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
-                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
+                <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
-                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/15/Linux笔记/05_Hexo客部署到GitHub/">
+                <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
             </a>
         </li>
     </ul>
@@ -377,15 +368,16 @@
 <div id="share-options-mask" class="share-options-mask"></div>
             
         </div>
-        <div id="about">
+        
+
+
+<div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/avatar_01.png"/>
-        
-            <h4 id="about-card-name">John Doe</h4>
+            <h4 id="about-card-name">HuangLong</h4>
         
             <h5 id="about-card-bio"><p>author.bio</p>
 </h5>
@@ -399,20 +391,17 @@
             </h5>
         
         
-            <h5 id="about-card-location">
-                <i class="fa fa-map-marker"></i>
-                <br/>
-                Chiba Japan
-            </h5>
-        
     </div>
 </div>
 
-        <div id="cover" style="background-image:url('http://7xih5c.com1.z0.glb.clouddn.com/15-10-7/29875909.jpg');"></div>
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
     </body>
     <!--SCRIPTS-->
-<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<script src="/assets/js/scrip-tu4ziscb5jrkjxubeugdgizktyuugflfq5jvgz4agzzmwifuq01g1lmq8giw.min.js" type="text/javascript"></script>
 <!--SCRIPTS END-->
+
+    
 
 
 
