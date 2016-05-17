@@ -19,7 +19,7 @@
 <meta property="og:url" content="http://flyoob.com/2016/05/09/Linux笔记/04_Vim技巧菜（持续更新中）/index.html">
 <meta property="og:site_name" content="FlyingNoob 菜鸟先飞早入林">
 <meta property="og:description" content="Vim 常用命令整理，提高生产效率。">
-<meta property="og:updated_time" content="2016-05-17T14:15:29.141Z">
+<meta property="og:updated_time" content="2016-05-17T14:35:14.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim 技巧菜（持续更新中）">
 <meta name="twitter:description" content="Vim 常用命令整理，提高生产效率。">
@@ -200,13 +200,12 @@
             <p>Vim 常用命令整理，提高生产效率。<br><a id="more"></a></p>
 <h3 id="VIM快速移动"><a href="#VIM快速移动" class="headerlink" title="VIM快速移动"></a>VIM快速移动</h3><p>在移动光标前请先按下 ESC 键，然后 <code>shift+$</code> 是移动到行尾，<code>0</code> 是移动到行首</p>
 <h3 id="VIM查找"><a href="#VIM查找" class="headerlink" title="VIM查找"></a>VIM查找</h3><p>命令模式下，输入 <code>/word</code> 后回车，即查找 <code>word</code>，<br>按 n 查找下一个匹配单词，按 N 查找上一个匹配单词。</p>
-<h3 id="字体颜色修改-高亮"><a href="#字体颜色修改-高亮" class="headerlink" title="字体颜色修改/高亮"></a>字体颜色修改/高亮</h3><p>在 <code>/etc/vim/vimrc</code> 中增加如下一句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">syntax on</span><br></pre></td></tr></table></figure></p>
+<h3 id="字体颜色修改-高亮"><a href="#字体颜色修改-高亮" class="headerlink" title="字体颜色修改/高亮"></a>字体颜色修改/高亮</h3><p>在 <code>/etc/vim/vimrc</code> 中增加如下一句：<code>syntax on</code></p>
 <p>开启语法结构强调，就是语法高亮</p>
-<h3 id="修改主题颜色"><a href="#修改主题颜色" class="headerlink" title="修改主题颜色"></a>修改主题颜色</h3><p>打开一个Vim窗口，输入命令 <code>:color</code> 或 <code>:colorscheme</code> 后回车查看当前的颜色主题， 可以看到当前的颜色主题为 default。<br>Vim 的颜色主题文件放在 Vim 运行目录下的 color 目录下，所以我们首先需要知道 Vim 的运行目录。<br>在 Vim 中输入命令 <code>:echo $VIMRUNTIME</code> 来查看Vim的运行目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/share/vim/vim73</span><br></pre></td></tr></table></figure></p>
-<p>进入 Vim 的运行目录，查看 colors 目录下以 <code>.vim</code> 为结尾的文件， 这些文件即是颜色主题文件，文件名就是主题名字。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;blue.vim      delek.vim    evening.vim  murphy.vim     README.txt  slate.vim&#10;darkblue.vim  desert.vim   koehler.vim  pablo.vim      ron.vim     torte.vim&#10;default.vim   elflord.vim  morning.vim  peachpuff.vim  shine.vim   zellner.vim</span><br></pre></td></tr></table></figure></p>
-<p>打开 <code>/etc/vim/vimrc</code> 文件，在其中加入一行 <code>colorscheme 颜色主题名字</code>，之后保存更改即可。</p>
-<p>如 <code>colorscheme blue</code></p>
-<h3 id="设置tab缩进4个空格"><a href="#设置tab缩进4个空格" class="headerlink" title="设置tab缩进4个空格"></a>设置tab缩进4个空格</h3><p>配置文件中加入如下一句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set tabstop=4</span><br></pre></td></tr></table></figure></p>
+<h3 id="修改主题颜色"><a href="#修改主题颜色" class="headerlink" title="修改主题颜色"></a>修改主题颜色</h3><p>打开一个Vim窗口，输入命令 <code>:color</code> 或 <code>:colorscheme</code> 后回车查看当前的颜色主题，可以看到当前的颜色主题为 default。<br>Vim 的颜色主题文件放在 Vim 运行目录下的 color 目录下，所以我们首先需要知道 Vim 的运行目录。<br>在 Vim 中输入命令 <code>:echo $VIMRUNTIME</code> 来查看Vim的运行目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/share/vim/vim73</span><br></pre></td></tr></table></figure></p>
+<p>进入 Vim 的运行目录，查看 colors 目录下以 <code>.vim</code> 为结尾的文件， 这些文件即是颜色主题文件，文件名就是主题名字。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">blue.vim      delek.vim    evening.vim  murphy.vim     README.txt  slate.vim</span><br><span class="line">darkblue.vim  desert.vim   koehler.vim  pablo.vim      ron.vim     torte.vim</span><br><span class="line">default.vim   elflord.vim  morning.vim  peachpuff.vim  shine.vim   zellner.vim</span><br></pre></td></tr></table></figure></p>
+<p>打开 <code>/etc/vim/vimrc</code> 文件，在其中加入一行 <code>colorscheme 颜色主题名字</code>，之后保存更改即可。<br>如 <code>colorscheme blue</code></p>
+<h3 id="设置tab缩进4个空格"><a href="#设置tab缩进4个空格" class="headerlink" title="设置tab缩进4个空格"></a>设置tab缩进4个空格</h3><p>配置文件中加入如下一句：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> tabstop=<span class="number">4</span></span><br></pre></td></tr></table></figure></p>
 
             
         </div>
