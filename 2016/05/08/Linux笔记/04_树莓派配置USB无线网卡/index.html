@@ -16,11 +16,11 @@
     <meta name="description" content="树莓派配置 USB 无线网卡来上网的过程。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="树莓派配置 USB 无线网卡">
-<meta property="og:url" content="http://flyoob.com/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/index.html">
+<meta property="og:url" content="http://flyoob.com/2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/index.html">
 <meta property="og:site_name" content="FlyingNoob 菜鸟先飞早入林">
 <meta property="og:description" content="树莓派配置 USB 无线网卡来上网的过程。">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/usbwifi.jpg">
-<meta property="og:updated_time" content="2016-05-17T14:39:33.288Z">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/04_usbwifi.jpg">
+<meta property="og:updated_time" content="2016-05-20T07:57:47.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派配置 USB 无线网卡">
 <meta name="twitter:description" content="树莓派配置 USB 无线网卡来上网的过程。">
@@ -218,7 +218,7 @@
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
             <p>树莓派配置 USB 无线网卡来上网的过程。<br><a id="more"></a></p>
-<p>本人使用的USB无线网卡型号：EP-N8508GS（树莓派专用型号）<br><img src="http://o71mbfad2.bkt.clouddn.com/usbwifi.jpg" alt=""></p>
+<p>本人使用的USB无线网卡型号：EP-N8508GS（树莓派专用型号）<br><img src="http://o71mbfad2.bkt.clouddn.com/04_usbwifi.jpg" alt=""></p>
 <h3 id="一、检查-USB-无线网卡是否已经正确识别"><a href="#一、检查-USB-无线网卡是否已经正确识别" class="headerlink" title="一、检查 USB 无线网卡是否已经正确识别"></a>一、检查 USB 无线网卡是否已经正确识别</h3><p><strong>将无线 USB 网卡插入树莓派后启动树莓派，比较不建议热插拔，因为插入的一瞬间会有比较高的电流，如果电源输出不够可能导致树莓派重启。</strong><br>进入 shell 界面后输入命令 <code>lsusb</code><br>如果树莓派已经正常识别，在显示类似于如下的信息中可以看到你的USB无线网卡设备 ID 和芯片型号：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Bus <span class="number">001</span> Device <span class="number">004</span>: ID <span class="number">0</span>bda:<span class="number">8176</span> Realtek Semiconductor Corp. RTL8188CUS <span class="number">802.11</span>n WLAN Adapter</span><br><span class="line">Bus <span class="number">001</span> Device <span class="number">003</span>: ID <span class="number">0424</span>:ec00 Standard Microsystems Corp. SMSC9512/<span class="number">9514</span> Fast Ethernet Adapter</span><br><span class="line">Bus <span class="number">001</span> Device <span class="number">002</span>: ID <span class="number">0424</span>:<span class="number">9514</span> Standard Microsystems Corp. </span><br><span class="line">Bus <span class="number">001</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0002</span> Linux Foundation <span class="number">2.0</span> root hub</span><br></pre></td></tr></table></figure></p>
 <p>如上，我的 pi 已经识别 <code>RTL8188CUS 802.11n WLAN Adapter</code><br>再使用 <code>iwconfig</code> 命令确认一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wlan0     unassociated  Nickname:<span class="string">"&lt;WIFI@REALTEK&gt;"</span></span><br><span class="line">          Mode:Managed  Frequency=<span class="number">2.412</span> GHz  Access Point: Not-Associated   </span><br><span class="line">          Sensitivity:<span class="number">0</span>/<span class="number">0</span>  </span><br><span class="line">          Retry:off   RTS thr:off   Fragment thr:off</span><br><span class="line">          Power Management:off</span><br><span class="line">          Link Quality:<span class="number">0</span>  Signal level:<span class="number">0</span>  Noise level:<span class="number">0</span></span><br><span class="line">          Rx invalid nwid:<span class="number">0</span>  Rx invalid crypt:<span class="number">0</span>  Rx invalid frag:<span class="number">0</span></span><br><span class="line">          Tx excessive retries:<span class="number">0</span>  Invalid misc:<span class="number">0</span>   Missed beacon:<span class="number">0</span></span><br><span class="line">lo        no wireless extensions.</span><br><span class="line">eth0      no wireless extensions.</span><br></pre></td></tr></table></figure></p>
 <p>如果出现了 wlan0，那说明网卡已经正常工作了，如果这里的显示不正常，请安装连接 wifi 必要的包。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install wireless-tools wpasupplicant firmware-realtek</span><br></pre></td></tr></table></figure></p>
@@ -252,7 +252,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/" data-tooltip="树莓派初次使用的基本配置">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/" data-tooltip="树莓派初次使用的基本配置">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -267,17 +267,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -301,8 +301,8 @@
 
         
             
-                <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/"
-     data-title="树莓派配置 USB 无线网卡" data-url="http://flyoob.com/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/">
+                <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/"
+     data-title="树莓派配置 USB 无线网卡" data-url="http://flyoob.com/2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/">
 </div>
 
             
@@ -334,7 +334,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/" data-tooltip="树莓派初次使用的基本配置">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/" data-tooltip="树莓派初次使用的基本配置">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -349,17 +349,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -385,17 +385,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="1">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/">
                 <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>

@@ -16,14 +16,14 @@
     <meta name="description" content="记录了一下树莓派初次使用的配置过程，包括装系统、修改 IP 等等。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="树莓派初次使用的基本配置">
-<meta property="og:url" content="http://flyoob.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/index.html">
+<meta property="og:url" content="http://flyoob.com/2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/index.html">
 <meta property="og:site_name" content="FlyingNoob 菜鸟先飞早入林">
 <meta property="og:description" content="记录了一下树莓派初次使用的配置过程，包括装系统、修改 IP 等等。">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/rapberrypi_1.jpg">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/win32diskimage.jpg">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/raspconfig.jpg">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/overclock.jpg">
-<meta property="og:updated_time" content="2016-05-20T07:42:22.680Z">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/01_rapberrypi_1.jpg">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/01_win32diskimage.jpg">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/01_raspconfig.jpg">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/01_overclock.jpg">
+<meta property="og:updated_time" content="2016-05-20T08:05:55.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派初次使用的基本配置">
 <meta name="twitter:description" content="记录了一下树莓派初次使用的配置过程，包括装系统、修改 IP 等等。">
@@ -35,8 +35,8 @@
         <meta property="og:image" content="http://flyoob.com/assets/images/avatar.png"/>
     
     
-        <meta property="og:image" content="2016/05/08/Linux笔记/00_树莓派初次使用的基本配置//raspberry_real.png"/>
-        <meta class="swiftype" name="image" data-type="enum" content="2016/05/08/Linux笔记/00_树莓派初次使用的基本配置//raspberry_real.png" />
+        <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/01_raspberry_real.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://o71mbfad2.bkt.clouddn.com/01_raspberry_real.png" />
     
     
     
@@ -224,11 +224,11 @@
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
             <p>记录了一下树莓派初次使用的配置过程，包括装系统、修改 IP 等等。<br><a id="more"></a></p>
-<p>树莓派（英语：Raspberry Pi），是一款基於 Linux 的单板机電腦。<br>它由英國的树莓派基金會所開發，目的是以低價硬體及自由軟體刺激在学校的基本电脑科学教育。<br><img src="http://o71mbfad2.bkt.clouddn.com/rapberrypi_1.jpg" alt=""><br>树莓派的维基百科<a href="https://zh.wikipedia.org/zh/树莓派" target="_blank" rel="external">地址</a></p>
-<h3 id="一、给树莓派安装一个系统"><a href="#一、给树莓派安装一个系统" class="headerlink" title="一、给树莓派安装一个系统"></a>一、给树莓派安装一个系统</h3><p>树莓派用作web服务器不需要太多桌面功能，因此选择安装 RASPBIAN JESSIE LITE。<br>RASPBIAN JESSIE LITE<a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">2016-03-18-raspbian-jessie-lite.img</a><br>由于 pi 只能通过 SD 卡启动，所以使用 <code>Win32DiskImager</code> 这款小软件把我们的 image 刷到 SD 卡上：<br><img src="http://o71mbfad2.bkt.clouddn.com/win32diskimage.jpg" alt=""><br>注意，初次使用时需要通过串口连接到树莓派，默认用户是 pi，密码为 raspberry，波特率 115200bps<br>推荐使用 <code>SecureCRT</code> 这款终端软件，连接成功后可以进行如下操作：</p>
+<p>树莓派（英语：Raspberry Pi），是一款基於 Linux 的单板机電腦。<br>它由英國的树莓派基金會所開發，目的是以低價硬體及自由軟體刺激在学校的基本电脑科学教育。<br><img src="http://o71mbfad2.bkt.clouddn.com/01_rapberrypi_1.jpg" alt=""><br>树莓派的维基百科<a href="https://zh.wikipedia.org/zh/树莓派" target="_blank" rel="external">地址</a></p>
+<h3 id="一、给树莓派安装一个系统"><a href="#一、给树莓派安装一个系统" class="headerlink" title="一、给树莓派安装一个系统"></a>一、给树莓派安装一个系统</h3><p>树莓派用作web服务器不需要太多桌面功能，因此选择安装 RASPBIAN JESSIE LITE。<br>RASPBIAN JESSIE LITE<a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">2016-03-18-raspbian-jessie-lite.img</a><br>由于 pi 只能通过 SD 卡启动，所以使用 <code>Win32DiskImager</code> 这款小软件把我们的 image 刷到 SD 卡上：<br><img src="http://o71mbfad2.bkt.clouddn.com/01_win32diskimage.jpg" alt=""><br>注意，初次使用时需要通过串口连接到树莓派，默认用户是 pi，密码为 raspberry，波特率 115200bps<br>推荐使用 <code>SecureCRT</code> 这款终端软件，连接成功后可以进行如下操作：</p>
 <p>使用 <code>df -h</code> 查看 pi 的文件系统使用情况，发现 16GB 的 SD 卡只用了 1.2GB<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/root       <span class="number">1.2</span>G  <span class="number">816</span>M  <span class="number">290</span>M  <span class="number">74</span>% /</span><br><span class="line">devtmpfs        <span class="number">214</span>M     <span class="number">0</span>  <span class="number">214</span>M   <span class="number">0</span>% /dev</span><br><span class="line">tmpfs           <span class="number">218</span>M     <span class="number">0</span>  <span class="number">218</span>M   <span class="number">0</span>% /dev/shm</span><br><span class="line">tmpfs           <span class="number">218</span>M  <span class="number">4.4</span>M  <span class="number">214</span>M   <span class="number">3</span>% /run</span><br><span class="line">tmpfs           <span class="number">5.0</span>M  <span class="number">4.0</span>K  <span class="number">5.0</span>M   <span class="number">1</span>% /run/lock</span><br><span class="line">tmpfs           <span class="number">218</span>M     <span class="number">0</span>  <span class="number">218</span>M   <span class="number">0</span>% /sys/fs/cgroup</span><br><span class="line">/dev/mmcblk0p1   <span class="number">60</span>M   <span class="number">20</span>M   <span class="number">41</span>M  <span class="number">34</span>% /boot</span><br></pre></td></tr></table></figure></p>
 <p>使用 <code>cat /proc/cpuinfo</code> 查看 pi 的硬件信息：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">processor       : <span class="number">0</span></span><br><span class="line">model name      : ARMv6-compatible processor rev <span class="number">7</span> (v6l)</span><br><span class="line">BogoMIPS        : <span class="number">2.00</span></span><br><span class="line">Features        : half thumb fastmult vfp edsp java tls </span><br><span class="line">CPU implementer : <span class="number">0</span>x41</span><br><span class="line">CPU architecture: <span class="number">7</span></span><br><span class="line">CPU variant     : <span class="number">0</span>x0</span><br><span class="line">CPU part        : <span class="number">0</span>xb76</span><br><span class="line">CPU revision    : <span class="number">7</span></span><br><span class="line">Hardware        : BCM2708</span><br><span class="line">Revision        : <span class="number">000</span>e</span><br><span class="line">Serial          : <span class="number">00000000756</span>cec5c</span><br></pre></td></tr></table></figure></p>
-<h3 id="二、初次使用配置，扩展-SD-卡"><a href="#二、初次使用配置，扩展-SD-卡" class="headerlink" title="二、初次使用配置，扩展 SD 卡"></a>二、初次使用配置，扩展 SD 卡</h3><p>执行 <code>sudo raspi-config</code> 进入配置界面：<br><img src="http://o71mbfad2.bkt.clouddn.com/raspconfig.jpg" alt=""><br>按下 Enter 选项 1，扩展 SD 空间。树莓派安装完成后只用了一部分 SD 空间，所以这里要进行扩展。<br>此外，还可以进行一些其他配置，如：修改密码，启动选项超频等等，这里不再展开。<br>超频警告如下：<br><img src="http://o71mbfad2.bkt.clouddn.com/overclock.jpg" alt=""></p>
+<h3 id="二、初次使用配置，扩展-SD-卡"><a href="#二、初次使用配置，扩展-SD-卡" class="headerlink" title="二、初次使用配置，扩展 SD 卡"></a>二、初次使用配置，扩展 SD 卡</h3><p>执行 <code>sudo raspi-config</code> 进入配置界面：<br><img src="http://o71mbfad2.bkt.clouddn.com/01_raspconfig.jpg" alt=""><br>按下 Enter 选项 1，扩展 SD 空间。树莓派安装完成后只用了一部分 SD 空间，所以这里要进行扩展。<br>此外，还可以进行一些其他配置，如：修改密码，启动选项超频等等，这里不再展开。<br>超频警告如下：<br><img src="http://o71mbfad2.bkt.clouddn.com/01_overclock.jpg" alt=""></p>
 <h3 id="三、更换软件源（apt-get-sources）"><a href="#三、更换软件源（apt-get-sources）" class="headerlink" title="三、更换软件源（apt-get sources）"></a>三、更换软件源（apt-get sources）</h3><p>树莓派的默认服务器比较慢，官方有提供一个镜像列表： <a href="http://www.raspbian.org/RaspbianMirrors" target="_blank" rel="external">http://www.raspbian.org/RaspbianMirrors</a><br>这里选择中科大的镜像，主页：<a href="https://lug.ustc.edu.cn/wiki/mirrors/help/raspbian" target="_blank" rel="external">https://lug.ustc.edu.cn/wiki/mirrors/help/raspbian</a></p>
 <p>编辑 <code>/etc/apt/sources.list</code> 文件，这里推荐用 <code>nano</code> 命令编辑，因为树莓派默认安装的 Vim 还不好用，需要更新。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
 <p>进入编辑界面，删除掉原有的内容，粘贴中科大提供的网址，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main non-free contrib</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main non-free contrib</span><br></pre></td></tr></table></figure></p>
@@ -251,7 +251,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/"  data-tooltip="树莓派配置 USB 无线网卡">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/"  data-tooltip="树莓派配置 USB 无线网卡">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -274,17 +274,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -308,8 +308,8 @@
 
         
             
-                <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/"
-     data-title="树莓派初次使用的基本配置" data-url="http://flyoob.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+                <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/"
+     data-title="树莓派初次使用的基本配置" data-url="http://flyoob.com/2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/">
 </div>
 
             
@@ -333,7 +333,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/Linux笔记/01_树莓派配置USB无线网卡/"  data-tooltip="树莓派配置 USB 无线网卡">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/Linux笔记/04_树莓派配置USB无线网卡/"  data-tooltip="树莓派配置 USB 无线网卡">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -356,17 +356,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -392,17 +392,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="1">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/">
                 <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/Linux笔记/00_树莓派初次使用的基本配置/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/Linux笔记/01_树莓派初次使用的基本配置/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>
