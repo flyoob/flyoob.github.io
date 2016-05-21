@@ -2188,8 +2188,8 @@ body {
   padding: 0;
   background: white;
   font-family: "Open Sans", sans-serif;
-  font-size: 1.5rem;
-  line-height: 1.9em;
+  font-size: 1.4rem;
+  line-height: 1.8em;
   letter-spacing: 0.01em;
   -webkit-font-smoothing: subpixel-antialiased;
   font-smoothing: subpixel-antialiased; }
@@ -2203,9 +2203,9 @@ h4,
 h5,
 h6 {
   letter-spacing: -0.04em;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700;
-  line-height: 1.45em;
+  font-family: Verdana, Geneva, "Open Sans", SimHei, "Noto Sans", "Noto Sans CJK SC", "Microsoft Yahei", sans-serif;
+  font-weight: 500;
+  line-height: 1.2em;
   color: #4a4a4a; }
 
 h1,
@@ -2303,10 +2303,10 @@ code {
 
 acronym,
 abbr {
-  border-bottom: 1px dotted #424242; }
+  border-bottom: 1px dotted #323232; }
 
 blockquote {
-  border-left: 3px solid #424242;
+  border-left: 3px solid #323232;
   padding: 0 15px;
   font-style: italic;
   margin: 1.5em 0 0; }
@@ -2394,10 +2394,10 @@ blockquote {
     #about #about-card #about-card-job,
     #about #about-card #about-card-location,
     #about #about-card #about-card-bio {
-      font-size: 1.5rem;
-      line-height: 1.9em;
+      font-size: 1.4rem;
+      line-height: 1.8em;
       font-weight: 400;
-      color: #424242; }
+      color: #323232; }
 
 @media only screen and (max-width: 767px) {
   #about #about-card {
@@ -2573,7 +2573,7 @@ blockquote {
     color: #88909a; }
   #header .header-title {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     line-height: 55px;
     margin: 0; }
     #header .header-title .header-title-link {
@@ -3090,7 +3090,7 @@ blockquote {
   display: none; }
 
 .archive .archive-title {
-  color: #424242; }
+  color: #323232; }
   .archive .archive-title:hover {
     text-decoration: underline; }
 
@@ -3098,7 +3098,7 @@ blockquote {
   list-style: none; }
   .archive .archive-posts .archive-post .archive-post-title {
     margin-left: 10px;
-    color: #424242; }
+    color: #323232; }
     .archive .archive-posts .archive-post .archive-post-title:hover {
       text-decoration: underline; }
   .archive .archive-posts .archive-post .archive-post-date {
@@ -3124,7 +3124,7 @@ blockquote {
   padding: 8px 15px;
   margin: 0;
   letter-spacing: 0.01em;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer; }
   .btn:hover, .btn:focus, .btn:active {
     text-decoration: none; }
@@ -3312,7 +3312,7 @@ figure.highlight,
   width: 100%;
   border: none;
   outline: none;
-  color: #424242;
+  color: #323232;
   font-weight: 300; }
   .form-control:hover, .form-control:focus {
     outline: none; }
@@ -3533,8 +3533,8 @@ a.fancybox {
   .post .post-content {
     text-rendering: optimizelegibility;
     letter-spacing: -0.3px;
-    font-family: "Merriweather", serif;
-    color: #424242;
+    font-family: "Open Sans", "Noto Sans", "Noto Sans CJK SC", "Microsoft Yahei", sans-serif;
+    color: #323232;
     margin-top: 20px;
     font-weight: 400;
     overflow: hidden;
@@ -3620,7 +3620,7 @@ a.fancybox {
     float: right;
     margin: 1.5em 0 1.5em 35px; }
   .pullquote.blur {
-    background-color: #cccccc; }
+    background-color: #bcbcbc; }
 
 .post-header .post-title {
   margin: 0;
@@ -3659,7 +3659,7 @@ a.fancybox {
     .post-header-cover .post-header .post-meta {
       max-width: 750px;
       font-family: "Open Sans", sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: white !important;
       font-weight: 400;
       letter-spacing: 0.05em;
@@ -3782,8 +3782,8 @@ a.fancybox {
   .postShorten .postShorten-content {
     text-rendering: optimizelegibility;
     letter-spacing: -0.3px;
-    font-family: "Merriweather", serif;
-    color: #424242;
+    font-family: "Open Sans", "Noto Sans", "Noto Sans CJK SC", "Microsoft Yahei", sans-serif;
+    color: #323232;
     font-weight: 400;
     overflow: hidden;
     -webkit-hypens: auto;
@@ -4000,7 +4000,7 @@ a.tag--small,
   font-size: 1.4rem !important; }
 
 .text-base {
-  font-size: 1.5rem !important; }
+  font-size: 1.4rem !important; }
 
 .text-large {
   font-size: 1.7rem !important; }
@@ -4027,7 +4027,7 @@ a.tag--small,
   text-decoration: underline !important; }
 
 .text-color-base {
-  color: #424242 !important; }
+  color: #323232 !important; }
 
 .text-color-light {
   color: #9eabb3 !important; }
@@ -4051,7 +4051,7 @@ a.tag--small,
     color: #fff;
     content: attr(data-tooltip);
     font-size: 0.93em;
-    line-height: 1.9em;
+    line-height: 1.8em;
     border-radius: 5px; }
   .tooltip:before, [data-tooltip]:before, .tooltip:after, [data-tooltip]:after {
     position: absolute;
