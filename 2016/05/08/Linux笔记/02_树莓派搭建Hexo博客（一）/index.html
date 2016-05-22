@@ -19,7 +19,7 @@
 <meta property="og:url" content="http://flyoob.com/2016/05/08/Linux笔记/02_树莓派搭建Hexo博客（一）/index.html">
 <meta property="og:site_name" content="FlyingNoob 菜鸟先飞早入林">
 <meta property="og:description" content="Hexo 一个开源的博客框架，本文记录了一下在树莓派上搭建 Hexo 博客的过程。">
-<meta property="og:updated_time" content="2016-05-22T05:27:37.061Z">
+<meta property="og:updated_time" content="2016-05-22T05:29:57.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派搭建 Hexo 博客（一）">
 <meta name="twitter:description" content="Hexo 一个开源的博客框架，本文记录了一下在树莓派上搭建 Hexo 博客的过程。">
@@ -238,7 +238,12 @@
 <h3 id="四、启动服务器，进行测试"><a href="#四、启动服务器，进行测试" class="headerlink" title="四、启动服务器，进行测试"></a>四、启动服务器，进行测试</h3><p>在 blog 目录下，输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></p>
 <p>默认情况下，用浏览器访问网址：<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a><br>如果可以看到hexo主页，那么就成功了！</p>
 <h3 id="五、使用-Hexo-直接在树莓派上生成静态页面"><a href="#五、使用-Hexo-直接在树莓派上生成静态页面" class="headerlink" title="五、使用 Hexo 直接在树莓派上生成静态页面"></a>五、使用 Hexo 直接在树莓派上生成静态页面</h3><p>输入下面命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></p>
-<p>可以在 blog/public 目录下生成静态页面，树莓派下生成还是比较吃力的，仅一篇文章就用了 20+ 秒，后续决定采用：<br>本地编写 markdown 文件，通过 node.js 和 hexo 生成静态文件，上传到树莓派 nginx 服务器的方式来更新我们的博客！</p>
+<p>可以在 blog/public 目录下生成静态页面，树莓派下生成还是比较吃力的，仅一篇文章就用了 20+ 秒，后续决定采用：</p>
+<blockquote>
+<ul>
+<li>本地编写 markdown 文件，通过 node.js 和 hexo 生成静态文件，上传到树莓派 nginx 服务器的方式来更新我们的博客！</li>
+</ul>
+</blockquote>
 
             
         </div>

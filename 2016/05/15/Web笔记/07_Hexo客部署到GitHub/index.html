@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_ssh_add_80.jpg">
 <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_godaddy_dns_80.jpg">
 <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_dnspod_add_record_2_80.jpg">
-<meta property="og:updated_time" content="2016-05-22T05:27:25.494Z">
+<meta property="og:updated_time" content="2016-05-22T05:28:57.753Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 博客部署到 GitHub">
 <meta name="twitter:description" content="本文简单记录了一下把 Hexo 部署到 GitHub 上的过程，也是搭建静态博客最常用的一种方式。">
@@ -227,7 +227,12 @@
         <div class="main-content-wrap">
             <p>本文简单记录了一下把 Hexo 部署到 GitHub 上的过程，也是搭建静态博客最常用的一种方式。<br><a id="more"></a></p>
 <p><img src="http://o71mbfad2.bkt.clouddn.com/07_hexo-blog-basic1_80.jpg" alt=""></p>
-<p>前面写了关于如何把 Hexo 安装在树莓派上的教程，但树莓派毕竟是连着自己的家的路由器，万一哪天网断了，网站就访问不了，多尴尬。<br>最近这几天又把整个 Hexo 博客的环境在自己的笔记本上搭了一下，后续准备采用：<br>本地编写 markdown 文件，通过 node.js 和 hexo 生成静态文件，上传到 GitHub 的方式来更新博客，即把 flyoob.com 指向 GitHub Pages。</p>
+<p>前面写了关于如何把 Hexo 安装在树莓派上的教程，但树莓派毕竟是连着自己的家的路由器，万一哪天网断了，网站就访问不了，多尴尬。<br>最近这几天又把整个 Hexo 博客的环境在自己的笔记本上搭了一下，后续准备采用：</p>
+<blockquote>
+<ul>
+<li>本地编写 markdown 文件，通过 node.js 和 hexo 生成静态文件，上传到 GitHub 的方式来更新博客，即把 flyoob.com 指向 GitHub Pages。</li>
+</ul>
+</blockquote>
 <h2 id="在-GitHub-上的操作"><a href="#在-GitHub-上的操作" class="headerlink" title="在 GitHub 上的操作"></a>在 GitHub 上的操作</h2><h3 id="一、新建一个-Repository"><a href="#一、新建一个-Repository" class="headerlink" title="一、新建一个  Repository"></a>一、新建一个  Repository</h3><p>在 Repository name 下填写 yourname.github.io,Description (optional) 下填写一些简单的描述（不写也没有关系），如图所示：<br><img src="http://o71mbfad2.bkt.clouddn.com/07_create_a_new_repository_800.jpg" alt=""><br>创建成功之后，如下图所示：<br><img src="http://o71mbfad2.bkt.clouddn.com/07_create_ok_80.jpg" alt=""><br>简单两步 yourname.github.io 这个域名就配置成功了。</p>
 <h2 id="在笔记本上的操作"><a href="#在笔记本上的操作" class="headerlink" title="在笔记本上的操作"></a>在笔记本上的操作</h2><h3 id="二、安装-GitHub"><a href="#二、安装-GitHub" class="headerlink" title="二、安装 GitHub"></a>二、安装 GitHub</h3><p>这步没什么好说的，去  <a href="https://git-scm.com/download/" target="_blank" rel="external">https://git-scm.com/download/</a>  适合你 Windows 的客户端，注意要添加 Git 环境变量到系统，否则在下面部署时出现如下错误。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git is not recognized as an internal or external <span class="built_in">command</span></span><br></pre></td></tr></table></figure></p>
 <p>还有生成 ssh 密钥等操作这里不再赘述，可以自行 Google。</p>
