@@ -6,29 +6,23 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="FlyingNoob 菜鸟先飞早入林">
-    <title>Hexo 博客部署到 GitHub - FlyingNoob 菜鸟先飞早入林</title>
+    <title>C++ 面向对象设计之命令空间 - FlyingNoob 菜鸟先飞早入林</title>
     <meta name="author" content="Huanglong">
     
     
         <link rel="icon" href="http://flyoob.com/assets/images/favicon.png">
     
     
-    <meta name="description" content="本文简单记录了一下把 Hexo 部署到 GitHub 上的过程，也是搭建静态博客最常用的一种方式。">
+    <meta name="description" content="简述了一下 C++ 语言中的命令空间">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Hexo 博客部署到 GitHub">
-<meta property="og:url" content="http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/index.html">
+<meta property="og:title" content="C++ 面向对象设计之命令空间">
+<meta property="og:url" content="http://flyoob.com/2016/05/23/编程语言/12_C++面向对象设计之命名空间/index.html">
 <meta property="og:site_name" content="FlyingNoob 菜鸟先飞早入林">
-<meta property="og:description" content="本文简单记录了一下把 Hexo 部署到 GitHub 上的过程，也是搭建静态博客最常用的一种方式。">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_hexo-blog-basic1_80.jpg">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_create_a_new_repository_800.jpg">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_create_ok_80.jpg">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_ssh_add_80.jpg">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_godaddy_dns_80.jpg">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_dnspod_add_record_2_80.jpg">
-<meta property="og:updated_time" content="2016-05-22T05:28:57.753Z">
+<meta property="og:description" content="简述了一下 C++ 语言中的命令空间">
+<meta property="og:updated_time" content="2016-05-23T01:53:16.589Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 博客部署到 GitHub">
-<meta name="twitter:description" content="本文简单记录了一下把 Hexo 部署到 GitHub 上的过程，也是搭建静态博客最常用的一种方式。">
+<meta name="twitter:title" content="C++ 面向对象设计之命令空间">
+<meta name="twitter:description" content="简述了一下 C++ 语言中的命令空间">
     
     
         
@@ -37,8 +31,8 @@
         <meta property="og:image" content="http://flyoob.com/assets/images/avatar.png"/>
     
     
-        <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_hexo-blog-basic1_80.jpg"/>
-        <meta class="swiftype" name="image" data-type="enum" content="http://o71mbfad2.bkt.clouddn.com/07_hexo-blog-basic1_80.jpg" />
+        <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/12_cpp.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://o71mbfad2.bkt.clouddn.com/12_cpp.jpg" />
     
     
     
@@ -204,19 +198,19 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Hexo 博客部署到 GitHub
+            C++ 面向对象设计之命令空间
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Sun May 15 2016 10:08:49 GMT+0800">
+    <time itemprop="datePublished" content="Mon May 23 2016 09:46:18 GMT+0800">
 	
-		    May 15, 2016
+		    May 23, 2016
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/Web笔记/">Web笔记</a>
+    <a class="category-link" href="/categories/编程语言/">编程语言</a>
 
 
     
@@ -225,26 +219,17 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>本文简单记录了一下把 Hexo 部署到 GitHub 上的过程，也是搭建静态博客最常用的一种方式。<br><a id="more"></a></p>
-<p><img src="http://o71mbfad2.bkt.clouddn.com/07_hexo-blog-basic1_80.jpg" alt=""></p>
-<p>前面写了关于如何把 Hexo 安装在树莓派上的教程，但树莓派毕竟是连着自己的家的路由器，万一哪天网断了，网站就访问不了，多尴尬。<br>最近这几天又把整个 Hexo 博客的环境在自己的笔记本上搭了一下，后续准备采用：</p>
-<blockquote>
-<ul>
-<li>本地编写 markdown 文件，通过 node.js 和 hexo 生成静态文件，上传到 GitHub 的方式来更新博客，即把 flyoob.com 指向 GitHub Pages。</li>
-</ul>
-</blockquote>
-<h2 id="在-GitHub-上的操作"><a href="#在-GitHub-上的操作" class="headerlink" title="在 GitHub 上的操作"></a>在 GitHub 上的操作</h2><h3 id="一、新建一个-Repository"><a href="#一、新建一个-Repository" class="headerlink" title="一、新建一个  Repository"></a>一、新建一个  Repository</h3><p>在 Repository name 下填写 yourname.github.io,Description (optional) 下填写一些简单的描述（不写也没有关系），如图所示：<br><img src="http://o71mbfad2.bkt.clouddn.com/07_create_a_new_repository_800.jpg" alt=""><br>创建成功之后，如下图所示：<br><img src="http://o71mbfad2.bkt.clouddn.com/07_create_ok_80.jpg" alt=""><br>简单两步 yourname.github.io 这个域名就配置成功了。</p>
-<h2 id="在笔记本上的操作"><a href="#在笔记本上的操作" class="headerlink" title="在笔记本上的操作"></a>在笔记本上的操作</h2><h3 id="二、安装-GitHub"><a href="#二、安装-GitHub" class="headerlink" title="二、安装 GitHub"></a>二、安装 GitHub</h3><p>这步没什么好说的，去  <a href="https://git-scm.com/download/" target="_blank" rel="external">https://git-scm.com/download/</a>  适合你 Windows 的客户端，注意要添加 Git 环境变量到系统，否则在下面部署时出现如下错误。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git is not recognized as an internal or external <span class="built_in">command</span></span><br></pre></td></tr></table></figure></p>
-<p>还有生成 ssh 密钥等操作这里不再赘述，可以自行 Google。</p>
-<h3 id="三、为-Hexo-安装-Git-插件"><a href="#三、为-Hexo-安装-Git-插件" class="headerlink" title="三、为 Hexo 安装 Git 插件"></a>三、为 Hexo 安装 Git 插件</h3><p>安装 <code>hexo-deployer-git</code>，否则会报 ERROR Deployer not found: git 的错误。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-<p>修改你的 _config.yml 配置文件如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:flyoob/flyoob.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<p>注意这里选择的是 ssh 地址，如下图：<br><img src="http://o71mbfad2.bkt.clouddn.com/07_ssh_add_80.jpg" alt=""></p>
-<p>生成静态文件和部署：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
-<p>最后出现如下提示就代表成功啦！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Deploy <span class="keyword">done</span>: git</span><br></pre></td></tr></table></figure></p>
-<h2 id="最后配置一下域名"><a href="#最后配置一下域名" class="headerlink" title="最后配置一下域名"></a>最后配置一下域名</h2><h3 id="四、设置域名-flyoob-com-指向-flyoob-github-com"><a href="#四、设置域名-flyoob-com-指向-flyoob-github-com" class="headerlink" title="四、设置域名 flyoob.com 指向 flyoob.github.com"></a>四、设置域名 flyoob.com 指向 flyoob.github.com</h3><p>我的域名是在 GoDaddy 上买的，DNS 用的是国内的 DNSpod。</p>
-<p>1.首先在 GoDaddy 中修改域名的 DNS 地址：<br><img src="http://o71mbfad2.bkt.clouddn.com/07_godaddy_dns_80.jpg" alt=""><br>设置为 DNSpod 提供的两个域名服务器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f1g1ns1.dnspod.net</span><br><span class="line">f1g1ns2.dnspod.net</span><br></pre></td></tr></table></figure></p>
-<p>2.然后在 DNSPOD 中添加域名 <code>flyoob.com</code>，并添加两条 CHAME 值（主机记录分别为 www 和 @），内容为你的博客在 GitHub 上的地址：<br><img src="http://o71mbfad2.bkt.clouddn.com/07_dnspod_add_record_2_80.jpg" alt=""></p>
-<p>3.最后在 GitHub Page 中的设置<br>在你本地的Hexo项目根目录下找到 source 目录，在 source 根目录下创建CNAME文件注：没有后缀）里面写入你要绑定的域名如：<code>flyoob.com</code>保存退出即可，注意不要忘了 <code>git push</code> 一次，把这个文件同步到 GitHub。</p>
+            <p>简述了一下 C++ 语言中的命令空间<br><a id="more"></a></p>
+<p>命令空间是 ANSI C++ 引入的可以由用户命名的作用域，用来处理程序中常见的同名冲突。</p>
+<p>C语言中定义了 3 个层次的作用域，即文件（编译单元）、函数和复合语句。C++ 又引入了类作用域，类是出现在文件内的。在不同的作用域中可以定义相同名字的变量，互不干扰，系统能够区分它们。</p>
+<p>我们知道在文件中可以定义全局变量（global variable），它的作用域是整个程序。如果在文件 A 中定义了一个变量 a，在文件 B 中可以再定义一个变量 a，在分别对文件 A 和 文件 B 编译时不会有问题。但是，如果一个程序包括 A 和 文件 B，那么在进行链接时，会报告错误，因为在同一个程序中有两个同名的变量，认为是对变量的重复定义。</p>
+<p>在简单的程序中，只要人们小心注意，可以争取不发送错误。但是，一个大型的应用软件，往往不是由一个人独立完成的，而是由若干个人合作完成的，不同的人分别完成不同的部分，最后组成一个完整的程序。假如不同的人分别定义了类，放在不同的头文件下，在主文件（包含主函数的文件）需要用到这些类时，就用 #include 命令将这些头文件包含进来。由于各头文件是由不同的人设计的，有可能在不同的头文件中用了相同的名字来命名所定义的类或函数。这样在程序中就会出现名字冲突。</p>
+<p>为了解决上面这个问题，ANSI C++ 增加了命令空间（namespace）。所谓命名空间，实际上就是一个由程序设计者命名的内存区域。程序设计者可以根据需要指定一些有名字的空间域，把一些全局实体分别放在各个命名空间中，从而与其他全局实体分隔开来。如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> ns1</span><br><span class="line">&#123;</span><br><span class="line">    ina a;</span><br><span class="line">    <span class="keyword">double</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>namespace 是定义命名空间所必须写的关键字，ns1 是用户自己指定的命名空间的名字，在花括号内是声明块，在其中声明的实体称为命名空间成员（namespace member）。现在命名空间成员包括变量 a 和 b，注意 a 和 b 仍然是全局变量，仅仅是把它们隐藏在指定的命名空间中而已。如果在程序中要使用 a 和 b，那么必须加上命令空间名和作用域分辨符“::”，如 nsl::a，nsl::b。这种用法称为空间限定（qualified），这些名字（如 nsl::a）被称为限定名（qualified name）。</p>
+<p>能否在程序中用一个语句就能一次声明一个命名空间中的全部成员呢？<br>C++ 提供了 using namespace 语句来实现这一目的。using namespace 语句的一般格式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">using namespace &#21629;&#20196;&#31354;&#38388;&#21517;;</span><br></pre></td></tr></table></figure>
+<p>声明了在本作用域中药用到命名空间 ns1 中的成员，在使用该命名空间的任何成员时都不必用命名空间限定。</p>
 
             
         </div>
@@ -256,7 +241,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/22/编程语言/11_C++面向对象设计之继承性/"  data-tooltip="C++ 面向对象设计之继承性">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -264,7 +249,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/" data-tooltip="Vim 技巧菜（持续更新中）">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/22/编程语言/11_C++面向对象设计之继承性/" data-tooltip="C++ 面向对象设计之继承性">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -279,17 +264,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/23/编程语言/12_C++面向对象设计之命名空间/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/23/编程语言/12_C++面向对象设计之命名空间/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/23/编程语言/12_C++面向对象设计之命名空间/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -313,8 +298,8 @@
 
         
             
-                <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/15/Web笔记/07_Hexo客部署到GitHub/"
-     data-title="Hexo 博客部署到 GitHub" data-url="http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+                <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/23/编程语言/12_C++面向对象设计之命名空间/"
+     data-title="C++ 面向对象设计之命令空间" data-url="http://flyoob.com/2016/05/23/编程语言/12_C++面向对象设计之命名空间/">
 </div>
 
             
@@ -338,7 +323,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/22/编程语言/11_C++面向对象设计之继承性/"  data-tooltip="C++ 面向对象设计之继承性">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -346,7 +331,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/" data-tooltip="Vim 技巧菜（持续更新中）">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/22/编程语言/11_C++面向对象设计之继承性/" data-tooltip="C++ 面向对象设计之继承性">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -361,17 +346,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/23/编程语言/12_C++面向对象设计之命名空间/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/23/编程语言/12_C++面向对象设计之命名空间/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/23/编程语言/12_C++面向对象设计之命名空间/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -397,17 +382,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="1">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/23/编程语言/12_C++面向对象设计之命名空间/">
                 <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/23/编程语言/12_C++面向对象设计之命名空间/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/23/编程语言/12_C++面向对象设计之命名空间/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>

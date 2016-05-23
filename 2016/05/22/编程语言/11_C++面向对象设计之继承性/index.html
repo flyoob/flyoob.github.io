@@ -6,29 +6,23 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="FlyingNoob 菜鸟先飞早入林">
-    <title>Hexo 博客部署到 GitHub - FlyingNoob 菜鸟先飞早入林</title>
+    <title>C++ 面向对象设计之继承性 - FlyingNoob 菜鸟先飞早入林</title>
     <meta name="author" content="Huanglong">
     
     
         <link rel="icon" href="http://flyoob.com/assets/images/favicon.png">
     
     
-    <meta name="description" content="本文简单记录了一下把 Hexo 部署到 GitHub 上的过程，也是搭建静态博客最常用的一种方式。">
+    <meta name="description" content="简述了一下 C++ 语言中的继承性">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Hexo 博客部署到 GitHub">
-<meta property="og:url" content="http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/index.html">
+<meta property="og:title" content="C++ 面向对象设计之继承性">
+<meta property="og:url" content="http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/index.html">
 <meta property="og:site_name" content="FlyingNoob 菜鸟先飞早入林">
-<meta property="og:description" content="本文简单记录了一下把 Hexo 部署到 GitHub 上的过程，也是搭建静态博客最常用的一种方式。">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_hexo-blog-basic1_80.jpg">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_create_a_new_repository_800.jpg">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_create_ok_80.jpg">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_ssh_add_80.jpg">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_godaddy_dns_80.jpg">
-<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_dnspod_add_record_2_80.jpg">
-<meta property="og:updated_time" content="2016-05-22T05:28:57.753Z">
+<meta property="og:description" content="简述了一下 C++ 语言中的继承性">
+<meta property="og:updated_time" content="2016-05-23T01:53:24.662Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 博客部署到 GitHub">
-<meta name="twitter:description" content="本文简单记录了一下把 Hexo 部署到 GitHub 上的过程，也是搭建静态博客最常用的一种方式。">
+<meta name="twitter:title" content="C++ 面向对象设计之继承性">
+<meta name="twitter:description" content="简述了一下 C++ 语言中的继承性">
     
     
         
@@ -37,8 +31,8 @@
         <meta property="og:image" content="http://flyoob.com/assets/images/avatar.png"/>
     
     
-        <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/07_hexo-blog-basic1_80.jpg"/>
-        <meta class="swiftype" name="image" data-type="enum" content="http://o71mbfad2.bkt.clouddn.com/07_hexo-blog-basic1_80.jpg" />
+        <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/11_cpp.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://o71mbfad2.bkt.clouddn.com/11_cpp.jpg" />
     
     
     
@@ -204,19 +198,19 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Hexo 博客部署到 GitHub
+            C++ 面向对象设计之继承性
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Sun May 15 2016 10:08:49 GMT+0800">
+    <time itemprop="datePublished" content="Sun May 22 2016 18:46:59 GMT+0800">
 	
-		    May 15, 2016
+		    May 22, 2016
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/Web笔记/">Web笔记</a>
+    <a class="category-link" href="/categories/编程语言/">编程语言</a>
 
 
     
@@ -225,27 +219,15 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>本文简单记录了一下把 Hexo 部署到 GitHub 上的过程，也是搭建静态博客最常用的一种方式。<br><a id="more"></a></p>
-<p><img src="http://o71mbfad2.bkt.clouddn.com/07_hexo-blog-basic1_80.jpg" alt=""></p>
-<p>前面写了关于如何把 Hexo 安装在树莓派上的教程，但树莓派毕竟是连着自己的家的路由器，万一哪天网断了，网站就访问不了，多尴尬。<br>最近这几天又把整个 Hexo 博客的环境在自己的笔记本上搭了一下，后续准备采用：</p>
-<blockquote>
-<ul>
-<li>本地编写 markdown 文件，通过 node.js 和 hexo 生成静态文件，上传到 GitHub 的方式来更新博客，即把 flyoob.com 指向 GitHub Pages。</li>
-</ul>
-</blockquote>
-<h2 id="在-GitHub-上的操作"><a href="#在-GitHub-上的操作" class="headerlink" title="在 GitHub 上的操作"></a>在 GitHub 上的操作</h2><h3 id="一、新建一个-Repository"><a href="#一、新建一个-Repository" class="headerlink" title="一、新建一个  Repository"></a>一、新建一个  Repository</h3><p>在 Repository name 下填写 yourname.github.io,Description (optional) 下填写一些简单的描述（不写也没有关系），如图所示：<br><img src="http://o71mbfad2.bkt.clouddn.com/07_create_a_new_repository_800.jpg" alt=""><br>创建成功之后，如下图所示：<br><img src="http://o71mbfad2.bkt.clouddn.com/07_create_ok_80.jpg" alt=""><br>简单两步 yourname.github.io 这个域名就配置成功了。</p>
-<h2 id="在笔记本上的操作"><a href="#在笔记本上的操作" class="headerlink" title="在笔记本上的操作"></a>在笔记本上的操作</h2><h3 id="二、安装-GitHub"><a href="#二、安装-GitHub" class="headerlink" title="二、安装 GitHub"></a>二、安装 GitHub</h3><p>这步没什么好说的，去  <a href="https://git-scm.com/download/" target="_blank" rel="external">https://git-scm.com/download/</a>  适合你 Windows 的客户端，注意要添加 Git 环境变量到系统，否则在下面部署时出现如下错误。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git is not recognized as an internal or external <span class="built_in">command</span></span><br></pre></td></tr></table></figure></p>
-<p>还有生成 ssh 密钥等操作这里不再赘述，可以自行 Google。</p>
-<h3 id="三、为-Hexo-安装-Git-插件"><a href="#三、为-Hexo-安装-Git-插件" class="headerlink" title="三、为 Hexo 安装 Git 插件"></a>三、为 Hexo 安装 Git 插件</h3><p>安装 <code>hexo-deployer-git</code>，否则会报 ERROR Deployer not found: git 的错误。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-<p>修改你的 _config.yml 配置文件如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:flyoob/flyoob.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<p>注意这里选择的是 ssh 地址，如下图：<br><img src="http://o71mbfad2.bkt.clouddn.com/07_ssh_add_80.jpg" alt=""></p>
-<p>生成静态文件和部署：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
-<p>最后出现如下提示就代表成功啦！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Deploy <span class="keyword">done</span>: git</span><br></pre></td></tr></table></figure></p>
-<h2 id="最后配置一下域名"><a href="#最后配置一下域名" class="headerlink" title="最后配置一下域名"></a>最后配置一下域名</h2><h3 id="四、设置域名-flyoob-com-指向-flyoob-github-com"><a href="#四、设置域名-flyoob-com-指向-flyoob-github-com" class="headerlink" title="四、设置域名 flyoob.com 指向 flyoob.github.com"></a>四、设置域名 flyoob.com 指向 flyoob.github.com</h3><p>我的域名是在 GoDaddy 上买的，DNS 用的是国内的 DNSpod。</p>
-<p>1.首先在 GoDaddy 中修改域名的 DNS 地址：<br><img src="http://o71mbfad2.bkt.clouddn.com/07_godaddy_dns_80.jpg" alt=""><br>设置为 DNSpod 提供的两个域名服务器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f1g1ns1.dnspod.net</span><br><span class="line">f1g1ns2.dnspod.net</span><br></pre></td></tr></table></figure></p>
-<p>2.然后在 DNSPOD 中添加域名 <code>flyoob.com</code>，并添加两条 CHAME 值（主机记录分别为 www 和 @），内容为你的博客在 GitHub 上的地址：<br><img src="http://o71mbfad2.bkt.clouddn.com/07_dnspod_add_record_2_80.jpg" alt=""></p>
-<p>3.最后在 GitHub Page 中的设置<br>在你本地的Hexo项目根目录下找到 source 目录，在 source 根目录下创建CNAME文件注：没有后缀）里面写入你要绑定的域名如：<code>flyoob.com</code>保存退出即可，注意不要忘了 <code>git push</code> 一次，把这个文件同步到 GitHub。</p>
-
+            <p>简述了一下 C++ 语言中的继承性<br><a id="more"></a></p>
+<p>所谓“继承”就是在一个已存在的类的基础上建立一个新的类。已存在的类称为“基类（base class）”或“父类（father class）”。新建立的类称为“派生类（drived class）”或“子类（son class）”。</p>
+<p>例如已经声明了学生基本数据的类 Student：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Student &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;   <span class="comment">// 对成员函数 display 的定义</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"num: "</span> &lt;&lt; num &lt;&lt; endl;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"name: "</span> &lt;&lt; name &lt;&lt; endl;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"sex: "</span> &lt;&lt; sex &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">    <span class="keyword">char</span> sex;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在此基础上通过单继承建立一个派生类 Student1：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Student1 : <span class="keyword">public</span> Student &#123;              <span class="comment">// 声明基类是 Student</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">display_1</span><span class="params">()</span> </span>&#123;                         <span class="comment">// 新增加的成员函数</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"age: "</span> &lt;&lt; age &lt;&lt; endl;        </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"address: "</span> &lt;&lt; addr &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> age;                                   <span class="comment">// 新增加的数据成员</span></span><br><span class="line">    <span class="built_in">string</span> addr;                               <span class="comment">// 新增加的数据成员</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在 class 后面的 Student1 是新建的类名。冒号后面的 Student 表示是已声明的基类。在 Student 之前有一个关键字 public，用来表示基类 Student 中的成员在派生类 Student1 中的继承方式。基类名前面有 public 的称为“共用继承（public inheritance）”。</p>
+<p>所以，声明派生类的一般形式为：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> 派生类名 : [继承方式] 基类名</span><br><span class="line">&#123;</span><br><span class="line">    派生类新增加的成员</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
             
         </div>
     </div>
@@ -256,7 +238,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/22/编程语言/11_C++面向对象设计之继承性/"  data-tooltip="C++ 面向对象设计之继承性">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/23/编程语言/12_C++面向对象设计之命名空间/"  data-tooltip="C++ 面向对象设计之命令空间">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -264,7 +246,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/" data-tooltip="Vim 技巧菜（持续更新中）">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/15/Web笔记/07_Hexo客部署到GitHub/" data-tooltip="Hexo 博客部署到 GitHub">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -279,17 +261,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -313,8 +295,8 @@
 
         
             
-                <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/15/Web笔记/07_Hexo客部署到GitHub/"
-     data-title="Hexo 博客部署到 GitHub" data-url="http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+                <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/22/编程语言/11_C++面向对象设计之继承性/"
+     data-title="C++ 面向对象设计之继承性" data-url="http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
 </div>
 
             
@@ -338,7 +320,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/22/编程语言/11_C++面向对象设计之继承性/"  data-tooltip="C++ 面向对象设计之继承性">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/23/编程语言/12_C++面向对象设计之命名空间/"  data-tooltip="C++ 面向对象设计之命令空间">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -346,7 +328,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/" data-tooltip="Vim 技巧菜（持续更新中）">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/15/Web笔记/07_Hexo客部署到GitHub/" data-tooltip="Hexo 博客部署到 GitHub">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -361,17 +343,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -397,17 +379,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="1">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
                 <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/15/Web笔记/07_Hexo客部署到GitHub/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>
