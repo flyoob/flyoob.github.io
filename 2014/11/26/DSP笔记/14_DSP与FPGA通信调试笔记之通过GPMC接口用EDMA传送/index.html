@@ -1,0 +1,508 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="FlyingNoob 菜鸟先飞早入林">
+    <title>DSP 与 FPGA 通信调试笔记之通过 GPMC 接口用 EDMA 传送 - FlyingNoob 菜鸟先飞早入林</title>
+    <meta name="author" content="Huanglong">
+    
+    
+        <link rel="icon" href="http://flyoob.com/assets/images/favicon.png">
+    
+    
+    <meta name="description" content="硬件：TI达芬奇TMS320DM8168（以下简称DSP）、EP4CE6E22C8N（以下简称FPGA）软件：linux-2.6.37">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="DSP 与 FPGA 通信调试笔记之通过 GPMC 接口用 EDMA 传送">
+<meta property="og:url" content="http://flyoob.com/2014/11/26/DSP笔记/14_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/index.html">
+<meta property="og:site_name" content="FlyingNoob 菜鸟先飞早入林">
+<meta property="og:description" content="硬件：TI达芬奇TMS320DM8168（以下简称DSP）、EP4CE6E22C8N（以下简称FPGA）软件：linux-2.6.37">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/14_gpmc_iface.png">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/14_iface_protocol.png">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/14_result1.png">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/14_result2.png">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/14_result3.png">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/14_fpga_sim.png">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/14_crc.png">
+<meta property="og:updated_time" content="2016-05-24T06:40:42.280Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DSP 与 FPGA 通信调试笔记之通过 GPMC 接口用 EDMA 传送">
+<meta name="twitter:description" content="硬件：TI达芬奇TMS320DM8168（以下简称DSP）、EP4CE6E22C8N（以下简称FPGA）软件：linux-2.6.37">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://flyoob.com/assets/images/avatar.png"/>
+    
+    
+        <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/14_dsp.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://o71mbfad2.bkt.clouddn.com/14_dsp.jpg" />
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-daauaafzdxe51rbdtpanmrt52dn4ze1pj6onqbg7hm63h1weog6hqbpolkuo.min.css" type="text/css">
+    <!--STYLES END-->
+    
+    
+    <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?f52eeb9e33bdfb18ef20244efa26e91c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="1">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">FlyingNoob 菜鸟先飞早入林</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="/#about">
+        
+        
+            <img class="header-picture" src="/assets/images/avatar.png"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="1">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/avatar.png"/>
+            </a>
+            <span class="sidebar-profile-name">Huanglong</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="/#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/flyoob" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:hihuanglong@foxmail.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="1"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            DSP 与 FPGA 通信调试笔记之通过 GPMC 接口用 EDMA 传送
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Wed Nov 26 2014 14:14:06 GMT+0800">
+	
+		    Nov 26, 2014
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/DSP笔记/">DSP笔记</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>硬件：TI达芬奇TMS320DM8168（以下简称DSP）、EP4CE6E22C8N（以下简称FPGA）<br>软件：linux-2.6.37<br><a id="more"></a></p>
+<p>&emsp;&emsp;近期项目需要实现 DSP 与 FPGA 之间的高速数据交换，用到了 DM8168 的 GPMC 接口。这部分的中文资料网上还是比较少的，于是苦苦研究芯片的数据手册和参考指南，最近终于有所成果，在 Linux 下调用 GPMC 驱动函数调通了 GPMC 接口，因此发出调试过程与大家分享。目前以 DSP 端可以通过 GPMC 用 EDMA 的方式读取 FPGA 端的数据，读取 8KB 字节大概用了 235us，即 34MB/s 的速度，实际上通过配置 GPMC 接口的时间参数，速度还可以更快。</p>
+<p>&emsp;&emsp;GPMC的全称是 General-Purpose Memory Controller，即通用存储控制器，是 TI 的 DSP 芯片DM8168 用来与外部存储设备例如 NOR FLASH、NAND FLASH、SRAM 等等通信的一个接口。这个接口并不是 DM8168 特有的，在 BeagleBone Black、AM35XX 芯片上也有类似接口。</p>
+<h5 id="一、硬件连接方式：在-DM8168-中-GPMC-接口时钟在异步模式下为-125MHz，这里就把-GPMC-接口配置为异步模式并设置-NOR-FLASH、非地址数据线复用的模式与-FPGA-通信，但只用-16-位数据线，不用地址线，即采用类似于-FIFO-的方式与-FPGA-通信。目前实际只使用到了如下-I-O-口："><a href="#一、硬件连接方式：在-DM8168-中-GPMC-接口时钟在异步模式下为-125MHz，这里就把-GPMC-接口配置为异步模式并设置-NOR-FLASH、非地址数据线复用的模式与-FPGA-通信，但只用-16-位数据线，不用地址线，即采用类似于-FIFO-的方式与-FPGA-通信。目前实际只使用到了如下-I-O-口：" class="headerlink" title="一、硬件连接方式：在 DM8168 中 GPMC 接口时钟在异步模式下为 125MHz，这里就把 GPMC 接口配置为异步模式并设置 NOR FLASH、非地址数据线复用的模式与 FPGA 通信，但只用 16 位数据线，不用地址线，即采用类似于 FIFO 的方式与 FPGA 通信。目前实际只使用到了如下 I/O 口："></a>一、硬件连接方式：在 DM8168 中 GPMC 接口时钟在异步模式下为 125MHz，这里就把 GPMC 接口配置为异步模式并设置 NOR FLASH、非地址数据线复用的模式与 FPGA 通信，但只用 16 位数据线，不用地址线，即采用类似于 FIFO 的方式与 FPGA 通信。目前实际只使用到了如下 I/O 口：</h5><table>
+<thead>
+<tr>
+<th>定义</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPMC_CS3</td>
+<td>用 CS3 做片选信号</td>
+</tr>
+<tr>
+<td>GPMC_OEN</td>
+<td>输出使能时钟</td>
+</tr>
+<tr>
+<td>D[15:0]</td>
+<td>16 位数据总线</td>
+</tr>
+<tr>
+<td>FIFO_RRST</td>
+<td>用于通知 FPGA 读指针复位</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://o71mbfad2.bkt.clouddn.com/14_gpmc_iface.png" alt=""></p>
+<h5 id="二、接口协议：采用异步方式读取，即不使用-GPMC-CLK，FPGA-端在-GPMC-OEN-的下降沿把数据送出去。"><a href="#二、接口协议：采用异步方式读取，即不使用-GPMC-CLK，FPGA-端在-GPMC-OEN-的下降沿把数据送出去。" class="headerlink" title="二、接口协议：采用异步方式读取，即不使用 GPMC_CLK，FPGA 端在 GPMC_OEN 的下降沿把数据送出去。"></a>二、接口协议：采用异步方式读取，即不使用 GPMC_CLK，FPGA 端在 GPMC_OEN 的下降沿把数据送出去。</h5><p><img src="http://o71mbfad2.bkt.clouddn.com/14_iface_protocol.png" alt=""></p>
+<h5 id="三、Linux-下-DSP-端代码分析"><a href="#三、Linux-下-DSP-端代码分析" class="headerlink" title="三、Linux 下 DSP 端代码分析"></a>三、Linux 下 DSP 端代码分析</h5><p>&emsp;&emsp;Linux中 gpmc 驱动源代码在 /arch/arm/mach-omap2/gpmc.c<br>&emsp;&emsp;配置方面主要包括与 GPMC 相关的 7 个特殊寄存器，其实 Linux 函数中已经把相关配置封装成了函数，我们只需要调用相关函数就可以。<br>&emsp;&emsp;EDMA的配置也是如此，需要注意的是，EDMA 中配置的地址都为物理地址，即 DMA 传送到源端为外设的地址即 GPMC 的物理地址，目的地端为你申请的内存空间物理地址。由于 DSP 是使用 FIFO 模式读取 FPGA 端数据的，所以 EDMA 还需配置源地址为不自增模式。代码如下，内容不多，所以不做详细注释。<br>&emsp;&emsp;FPGA 端的代码只要是实现在每个 OEN 信号下降沿来的时候，把 16bit 的数据送到 GPMC_DATA 端口，并自加一次。<br>GPMC 配置代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">struct</span> gpmc_timings fpga_timings = &#123;</span><br><span class="line">    <span class="comment">/*- GPMC timing configurations -*/</span></span><br><span class="line">    .sync_clk = <span class="number">0</span>,</span><br><span class="line">    <span class="comment">// CONFIG2 chip-select time</span></span><br><span class="line">    .cs_on = <span class="number">0</span>,         <span class="comment">/* Assertion time */</span></span><br><span class="line">    .cs_rd_off = <span class="number">50</span>,    <span class="comment">/* Read deassertion time */</span></span><br><span class="line">    .cs_wr_off = <span class="number">50</span>,    <span class="comment">/* Write deassertion time */</span></span><br><span class="line">    <span class="comment">// CONFIG3</span></span><br><span class="line">    .adv_on = <span class="number">0</span>,</span><br><span class="line">    .adv_rd_off = <span class="number">0</span>,</span><br><span class="line">    .adv_wr_off = <span class="number">0</span>,</span><br><span class="line">    <span class="comment">// CONFIG4</span></span><br><span class="line">    .we_on = <span class="number">20</span>,        <span class="comment">/* WE assertion time */</span></span><br><span class="line">    .we_off  = <span class="number">20</span>,      <span class="comment">/* WE deassertion time */</span></span><br><span class="line">    <span class="comment">// CONFIG4</span></span><br><span class="line">    .oe_on = <span class="number">20</span>,        <span class="comment">/* OE assertion time */</span></span><br><span class="line">    .oe_off = <span class="number">20</span>,       <span class="comment">/* OE deassertion time */</span></span><br><span class="line">    <span class="comment">// CONFIG5</span></span><br><span class="line">    .page_burst_access = <span class="number">0</span>,</span><br><span class="line">    .access = <span class="number">30</span>,       <span class="comment">/* Start-cycle to first data valid delay */</span></span><br><span class="line">    .rd_cycle = <span class="number">50</span>,     <span class="comment">/* Total read cycle time */</span></span><br><span class="line">    .wr_cycle = <span class="number">50</span>,     <span class="comment">/* Total write cycle time */</span></span><br><span class="line">    <span class="comment">// CONFIG6</span></span><br><span class="line">    .wr_access = <span class="number">0</span>,</span><br><span class="line">    .wr_data_mux_bus = <span class="number">0</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">gpmc_config</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="comment">// first reg gpmc_init() already called; io pinmux already configed</span></span><br><span class="line">    <span class="comment">// ti8168evm board_nand_init -&gt; gpmc_nand_init</span></span><br><span class="line">    u32 val = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> err = <span class="number">0</span>;</span><br><span class="line"><span class="comment">/*-</span><br><span class="line">EXPORT_SYMBOL(gpmc_cs_write_reg);</span><br><span class="line">EXPORT_SYMBOL(gpmc_cs_read_reg);</span><br><span class="line">EXPORT_SYMBOL(gpmc_cs_set_timings);</span><br><span class="line">-*/</span></span><br><span class="line">    <span class="comment">// gpmc cs disable memory</span></span><br><span class="line">    val = gpmc_cs_read_reg(GPMC_FPGA_CS, GPMC_CS_CONFIG7);</span><br><span class="line">    val &amp;= ~GPMC_CONFIG7_CSVALID;</span><br><span class="line">    gpmc_cs_write_reg(GPMC_FPGA_CS, GPMC_CS_CONFIG7, val);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// disable cs3 irq</span></span><br><span class="line">    gpmc_cs_configure(GPMC_FPGA_CS, GPMC_SET_IRQ_STATUS, <span class="number">0</span>);</span><br><span class="line">    gpmc_cs_configure(GPMC_FPGA_CS, GPMC_ENABLE_IRQ, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// set config1</span></span><br><span class="line">    gpmc_cs_write_reg(GPMC_FPGA_CS, GPMC_CS_CONFIG1, GPMC_CONFIG1_READTYPE_ASYNC|  <span class="comment">// set read type async</span></span><br><span class="line">        GPMC_CONFIG1_WRITETYPE_ASYNC| <span class="comment">// set write type async</span></span><br><span class="line">        GPMC_CONFIG1_DEVICESIZE_16|   <span class="comment">// set device size 16bit</span></span><br><span class="line">        GPMC_CONFIG1_DEVICETYPE_NOR   <span class="comment">// set device type nor</span></span><br><span class="line">    );</span><br><span class="line">    val = gpmc_cs_read_reg(GPMC_FPGA_CS, GPMC_CS_CONFIG1);</span><br><span class="line">    val &amp;= ~GPMC_CONFIG1_MUXADDDATA;</span><br><span class="line">    gpmc_cs_write_reg(GPMC_FPGA_CS, GPMC_CS_CONFIG1, val);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// set gpmc timings</span></span><br><span class="line">    err = gpmc_cs_set_timings(GPMC_FPGA_CS, &amp;fpga_timings);</span><br><span class="line">    <span class="keyword">if</span>(err &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        printk(KERN_ERR <span class="string">"Unable to set gpmc timings\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// apply gpmc select memory</span></span><br><span class="line">    err = gpmc_cs_request(GPMC_FPGA_CS, GPMC_FIFO_SIZE, &amp;gpmc_membase);</span><br><span class="line">    <span class="keyword">if</span>(err &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        printk(KERN_ERR <span class="string">"Cannot request GPMC CS\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> err;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//   request_mem_region(gpmc_membase, GPMC_FIFO_SIZE, DRIVERNAME);</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">//   fpga_membase = ioremap(gpmc_membase, GPMC_FIFO_SIZE);</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> err;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是总的代码，请自行下载。<br><a href="attach/fpga_perh.c">DownLoad</a></p>
+<h5 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h5><p>1.代码编译后通过 insmod 加载驱动，抓取 CS3 和 OEN 的波形如下，刚开始设计时没有用到 EDMA 传送，只是在 Linux 循环读取，可以看见每个周期里片选信号 CS3 都会维持很长一段高电平的时间，GPMC 一次的读取周期大概为 250ns。</p>
+<p><img src="http://o71mbfad2.bkt.clouddn.com/14_result1.png" alt=""></p>
+<p>通道 1 为片选信号 CS3，通道 2 为输出使能信号 OEN<br>这样的速率大概只有 16bit / 250ns = 8MBytes/s</p>
+<p>2.使用 EDMA 传送，这下读周期就小了很多了，只有 57.6ns，和 GPMC 参数里设置的几乎一致。</p>
+<p><img src="http://o71mbfad2.bkt.clouddn.com/14_result2.png" alt=""></p>
+<p>3.传送 8KBytes 即 4096 次，大概用了 235us，速率为 8KBytes / 235us = 34MB/s</p>
+<p><img src="http://o71mbfad2.bkt.clouddn.com/14_result3.png" alt=""></p>
+<p>4.FPGA 端使用 signaltap 抓取波形如下，可以看见 GPMC_DATA 为从1开始的自加顺序序列</p>
+<p><img src="http://o71mbfad2.bkt.clouddn.com/14_fpga_sim.png" alt=""></p>
+<p>5.Linux 端读取数据并做校验，还打印出了 GPMC 的7个寄存器的内容。校验通过，说明数据一致性正确！至此 DSP 与 FPGA 通过 GPMC 接口用 EDMA 实现数据高速传输，验证可行！</p>
+<p><img src="http://o71mbfad2.bkt.clouddn.com/14_crc.png" alt=""></p>
+<p>总结，FPGA 端代码比较简单就不上传了，如有需要欢迎交流。<br>DM8168 这款 DSP 芯片，本人刚接手开发也就两个月，文中若有不对之处欢迎指出。</p>
+<p>参考资料：<br><a href="http://blog.csdn.net/hailin0716/article/details/26553389" target="_blank" rel="external">http://blog.csdn.net/hailin0716/article/details/26553389</a><br><a href="http://blog.chinaunix.net/uid-28818752-id-3655729.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-28818752-id-3655729.html</a><br><a href="http://blog.chinaunix.net/uid-28818752-id-3749701.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-28818752-id-3749701.html</a><br><a href="http://blog.chinaunix.net/uid-28818752-id-3750016.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-28818752-id-3750016.html</a></p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/杂烩/00_关于这个博客/"  data-tooltip="关于这个博客">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2014/11/26/DSP笔记/14_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2014/11/26/DSP笔记/14_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2014/11/26/DSP笔记/14_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#ds-thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+                <div id="ds-thread" class="ds-thread" data-thread-key="2014/11/26/DSP笔记/14_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/"
+     data-title="DSP 与 FPGA 通信调试笔记之通过 GPMC 接口用 EDMA 传送" data-url="http://flyoob.com/2014/11/26/DSP笔记/14_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/">
+</div>
+
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Huanglong. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/杂烩/00_关于这个博客/"  data-tooltip="关于这个博客">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2014/11/26/DSP笔记/14_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2014/11/26/DSP笔记/14_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2014/11/26/DSP笔记/14_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#ds-thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="1">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2014/11/26/DSP笔记/14_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2014/11/26/DSP笔记/14_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2014/11/26/DSP笔记/14_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/avatar.png"/>
+        
+            <h4 id="about-card-name">Huanglong</h4>
+        
+            <h5 id="about-card-bio"><p>你好，我是黄龙。</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Software Engineer</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Hangzhou
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/scrip-nhlm4k8bzoknhow9p02h45qfgwullpzcssru6cqbl6icq05ehecjjtjxmkeb.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+    
+        <script type="text/javascript">
+            var duoshuoQuery = {short_name:'flyoob'};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        </script>
+    
+
+
+
+</html>
