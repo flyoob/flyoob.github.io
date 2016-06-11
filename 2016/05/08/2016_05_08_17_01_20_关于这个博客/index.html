@@ -6,23 +6,23 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="FlyingNoob 菜鸟先飞早入林">
-    <title>Vim 技巧菜（持续更新中） - FlyingNoob 菜鸟先飞早入林</title>
+    <title>关于这个博客 - FlyingNoob 菜鸟先飞早入林</title>
     <meta name="author" content="Huanglong">
     
     
         <link rel="icon" href="http://flyoob.com/assets/images/favicon.png">
     
     
-    <meta name="description" content="Vim 常用命令整理，提高生产效率。">
+    <meta name="description" content="有关于个人博客的一些碎碎念~">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Vim 技巧菜（持续更新中）">
-<meta property="og:url" content="http://flyoob.com/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/index.html">
+<meta property="og:title" content="关于这个博客">
+<meta property="og:url" content="http://flyoob.com/2016/05/08/2016_05_08_17_01_20_关于这个博客/index.html">
 <meta property="og:site_name" content="FlyingNoob 菜鸟先飞早入林">
-<meta property="og:description" content="Vim 常用命令整理，提高生产效率。">
-<meta property="og:updated_time" content="2016-05-20T08:29:24.657Z">
+<meta property="og:description" content="有关于个人博客的一些碎碎念~">
+<meta property="og:updated_time" content="2016-05-25T11:58:21.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vim 技巧菜（持续更新中）">
-<meta name="twitter:description" content="Vim 常用命令整理，提高生产效率。">
+<meta name="twitter:title" content="关于这个博客">
+<meta name="twitter:description" content="有关于个人博客的一些碎碎念~">
     
     
         
@@ -31,13 +31,13 @@
         <meta property="og:image" content="http://flyoob.com/assets/images/feiliu.jpg"/>
     
     
-        <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/05_vim.sh.png"/>
-        <meta class="swiftype" name="image" data-type="enum" content="http://o71mbfad2.bkt.clouddn.com/05_vim.sh.png" />
+        <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/00_about.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://o71mbfad2.bkt.clouddn.com/00_about.png" />
     
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-9xbexsvoumhzldyytubaifuuenezwqqdnqfduu134vupazqwn8zkcf7i5s2b.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style-07m2n3urbuophconz4w1jftq0byzy6qsm21xbwp8agzlykgoagqdjegsa2pq.min.css" type="text/css">
     <!--STYLES END-->
     
     
@@ -188,19 +188,19 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Vim 技巧菜（持续更新中）
+            关于这个博客
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Mon May 09 2016 14:24:42 GMT+0800">
+    <time itemprop="datePublished" content="Sun May 08 2016 17:01:20 GMT+0800">
 	
-		    May 09, 2016
+		    May 08, 2016
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/Linux笔记/">Linux笔记</a>
+    <a class="category-link" href="/categories/杂烩/">杂烩</a>
 
 
     
@@ -209,15 +209,21 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>Vim 常用命令整理，提高生产效率。<br><a id="more"></a></p>
-<h3 id="VIM快速移动"><a href="#VIM快速移动" class="headerlink" title="VIM快速移动"></a>VIM快速移动</h3><p>在移动光标前请先按下 ESC 键，然后 <code>shift+$</code> 是移动到行尾，<code>0</code> 是移动到行首</p>
-<h3 id="VIM查找"><a href="#VIM查找" class="headerlink" title="VIM查找"></a>VIM查找</h3><p>命令模式下，输入 <code>/word</code> 后回车，即查找 <code>word</code>，<br>按 n 查找下一个匹配单词，按 N 查找上一个匹配单词。</p>
-<h3 id="字体颜色修改-高亮"><a href="#字体颜色修改-高亮" class="headerlink" title="字体颜色修改/高亮"></a>字体颜色修改/高亮</h3><p>在 <code>/etc/vim/vimrc</code> 中增加如下一句：<code>syntax on</code></p>
-<p>开启语法结构强调，就是语法高亮</p>
-<h3 id="修改主题颜色"><a href="#修改主题颜色" class="headerlink" title="修改主题颜色"></a>修改主题颜色</h3><p>打开一个Vim窗口，输入命令 <code>:color</code> 或 <code>:colorscheme</code> 后回车查看当前的颜色主题，可以看到当前的颜色主题为 default。<br>Vim 的颜色主题文件放在 Vim 运行目录下的 color 目录下，所以我们首先需要知道 Vim 的运行目录。<br>在 Vim 中输入命令 <code>:echo $VIMRUNTIME</code> 来查看Vim的运行目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/share/vim/vim73</span><br></pre></td></tr></table></figure></p>
-<p>进入 Vim 的运行目录，查看 colors 目录下以 <code>.vim</code> 为结尾的文件， 这些文件即是颜色主题文件，文件名就是主题名字。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">blue.vim      delek.vim    evening.vim  murphy.vim     README.txt  slate.vim</span><br><span class="line">darkblue.vim  desert.vim   koehler.vim  pablo.vim      ron.vim     torte.vim</span><br><span class="line">default.vim   elflord.vim  morning.vim  peachpuff.vim  shine.vim   zellner.vim</span><br></pre></td></tr></table></figure></p>
-<p>打开 <code>/etc/vim/vimrc</code> 文件，在其中加入一行 <code>colorscheme 颜色主题名字</code>，之后保存更改即可。<br>如 <code>colorscheme blue</code></p>
-<h3 id="设置tab缩进4个空格"><a href="#设置tab缩进4个空格" class="headerlink" title="设置tab缩进4个空格"></a>设置tab缩进4个空格</h3><p>配置文件中加入如下一句：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> tabstop=<span class="number">4</span></span><br></pre></td></tr></table></figure></p>
+            <p>有关于个人博客的一些碎碎念~<br><a id="more"></a></p>
+<h3 id="个人建博记录"><a href="#个人建博记录" class="headerlink" title="个人建博记录"></a>个人建博记录</h3><p><strong>2008-09-13 ~ 2013-02-13 </strong> 百度空间（百度空间已于2015年5月7日正式迁移到百度云）<br><strong>2012-08-30 ~ 2016-05-08 </strong> 博客园 cnblogs：<a href="http://www.cnblogs.com/imapla" target="_blank" rel="external">http://www.cnblogs.com/imapla</a><br><strong>2016-05-08 ~ 至今 </strong></p>
+<blockquote>
+<ul>
+<li>2016-05-08 独立博客正式在树莓派（英语：Raspberry Pi）上线，没错:-D，它就是跑在树莓派上的</li>
+<li>2016-05-15 独立博客已经转移部署到 GitHub 上了</li>
+</ul>
+</blockquote>
+<h3 id="本博客使用项目"><a href="#本博客使用项目" class="headerlink" title="本博客使用项目"></a>本博客使用项目</h3><ul>
+<li>Hexo 博客框架：<a href="http://hexo.io" target="_blank" rel="external">http://hexo.io</a></li>
+<li>多说评论系统：<a href="http://duoshuo.com" target="_blank" rel="external">http://duoshuo.com</a></li>
+<li>百度统计：<a href="http://tongji.baidu.com" target="_blank" rel="external">http://tongji.baidu.com</a></li>
+<li>站内搜索：<a href="https://swiftype.com" target="_blank" rel="external">https://swiftype.com</a></li>
+<li>Markdown语法：<a href="https://guides.github.com/features/mastering-markdown" target="_blank" rel="external">https://guides.github.com/features/mastering-markdown</a></li>
+</ul>
 
             
         </div>
@@ -229,7 +235,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/15/Web笔记/07_Hexo客部署到GitHub/"  data-tooltip="Hexo 博客部署到 GitHub">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/2016_05_08_17_05_23_树莓派初次使用的基本配置/"  data-tooltip="树莓派初次使用的基本配置">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -237,7 +243,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/09/Linux笔记/03_树莓派搭建Hexo博客（二）/" data-tooltip="树莓派搭建 Hexo 博客（二）">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2014/11/26/2014_11_26_14_14_06_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/" data-tooltip="DSP 与 FPGA 通信调试笔记之通过 GPMC 接口用 EDMA 传送">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -252,17 +258,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/2016_05_08_17_01_20_关于这个博客/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/2016_05_08_17_01_20_关于这个博客/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/2016_05_08_17_01_20_关于这个博客/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -278,8 +284,6 @@
 </div>
 
 
-        
-            
         
     </div>
 </article>
@@ -300,7 +304,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/15/Web笔记/07_Hexo客部署到GitHub/"  data-tooltip="Hexo 博客部署到 GitHub">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/08/2016_05_08_17_05_23_树莓派初次使用的基本配置/"  data-tooltip="树莓派初次使用的基本配置">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -308,7 +312,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/09/Linux笔记/03_树莓派搭建Hexo博客（二）/" data-tooltip="树莓派搭建 Hexo 博客（二）">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2014/11/26/2014_11_26_14_14_06_DSP与FPGA通信调试笔记之通过GPMC接口用EDMA传送/" data-tooltip="DSP 与 FPGA 通信调试笔记之通过 GPMC 接口用 EDMA 传送">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -323,17 +327,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/2016_05_08_17_01_20_关于这个博客/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/2016_05_08_17_01_20_关于这个博客/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/2016_05_08_17_01_20_关于这个博客/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -353,17 +357,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/08/2016_05_08_17_01_20_关于这个博客/">
                 <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/08/2016_05_08_17_01_20_关于这个博客/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/09/Linux笔记/05_Vim技巧菜（持续更新中）/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/08/2016_05_08_17_01_20_关于这个博客/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>
@@ -414,10 +418,8 @@
 <div id="cover" style="background-image:url('/assets/images/code_for_coffee.jpg');"></div>
     </body>
     <!--SCRIPTS-->
-<script src="/assets/js/scrip-orwni2yufz7xse13wbl5xwp7iz9wt01kawvltsg7zxsncbntkf600cmsy65c.min.js" type="text/javascript"></script>
+<script src="/assets/js/scrip-rquvsp3isddpl6wkxe7fw7ijmwtsk1h7wslua7sdg1rkii97rehkwcqd6v2d.min.js" type="text/javascript"></script>
 <!--SCRIPTS END-->
-
-    
 
 
     <script type="text/javascript">

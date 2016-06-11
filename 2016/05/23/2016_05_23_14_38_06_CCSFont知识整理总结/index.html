@@ -6,23 +6,24 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="FlyingNoob 菜鸟先飞早入林">
-    <title>C++ 面向对象设计之继承性 - FlyingNoob 菜鸟先飞早入林</title>
+    <title>CCS Font 知识整理总结 - FlyingNoob 菜鸟先飞早入林</title>
     <meta name="author" content="Huanglong">
     
     
         <link rel="icon" href="http://flyoob.com/assets/images/favicon.png">
     
     
-    <meta name="description" content="简述了一下 C++ 语言中的继承性">
+    <meta name="description" content="总是搞不懂 CCS 中如何正确的使用字体，这下明白了。">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="C++ 面向对象设计之继承性">
-<meta property="og:url" content="http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/index.html">
+<meta property="og:title" content="CCS Font 知识整理总结">
+<meta property="og:url" content="http://flyoob.com/2016/05/23/2016_05_23_14_38_06_CCSFont知识整理总结/index.html">
 <meta property="og:site_name" content="FlyingNoob 菜鸟先飞早入林">
-<meta property="og:description" content="简述了一下 C++ 语言中的继承性">
-<meta property="og:updated_time" content="2016-05-23T01:53:24.662Z">
+<meta property="og:description" content="总是搞不懂 CCS 中如何正确的使用字体，这下明白了。">
+<meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/13_two_font.jpg">
+<meta property="og:updated_time" content="2016-05-24T06:00:32.104Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++ 面向对象设计之继承性">
-<meta name="twitter:description" content="简述了一下 C++ 语言中的继承性">
+<meta name="twitter:title" content="CCS Font 知识整理总结">
+<meta name="twitter:description" content="总是搞不懂 CCS 中如何正确的使用字体，这下明白了。">
     
     
         
@@ -31,13 +32,13 @@
         <meta property="og:image" content="http://flyoob.com/assets/images/feiliu.jpg"/>
     
     
-        <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/11_cpp.jpg"/>
-        <meta class="swiftype" name="image" data-type="enum" content="http://o71mbfad2.bkt.clouddn.com/11_cpp.jpg" />
+        <meta property="og:image" content="http://o71mbfad2.bkt.clouddn.com/13_css-style.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://o71mbfad2.bkt.clouddn.com/13_css-style.png" />
     
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-9xbexsvoumhzldyytubaifuuenezwqqdnqfduu134vupazqwn8zkcf7i5s2b.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style-07m2n3urbuophconz4w1jftq0byzy6qsm21xbwp8agzlykgoagqdjegsa2pq.min.css" type="text/css">
     <!--STYLES END-->
     
     
@@ -188,19 +189,19 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            C++ 面向对象设计之继承性
+            CCS Font 知识整理总结
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Sun May 22 2016 18:46:59 GMT+0800">
+    <time itemprop="datePublished" content="Mon May 23 2016 14:38:06 GMT+0800">
 	
-		    May 22, 2016
+		    May 23, 2016
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/编程语言/">编程语言</a>
+    <a class="category-link" href="/categories/Web笔记/">Web笔记</a>
 
 
     
@@ -209,15 +210,15 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>简述了一下 C++ 语言中的继承性<br><a id="more"></a></p>
-<p>所谓“继承”就是在一个已存在的类的基础上建立一个新的类。已存在的类称为“基类（base class）”或“父类（father class）”。新建立的类称为“派生类（drived class）”或“子类（son class）”。</p>
-<p>例如已经声明了学生基本数据的类 Student：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Student &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;   <span class="comment">// 对成员函数 display 的定义</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"num: "</span> &lt;&lt; num &lt;&lt; endl;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"name: "</span> &lt;&lt; name &lt;&lt; endl;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"sex: "</span> &lt;&lt; sex &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">    <span class="keyword">char</span> sex;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>在此基础上通过单继承建立一个派生类 Student1：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Student1 : <span class="keyword">public</span> Student &#123;              <span class="comment">// 声明基类是 Student</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">display_1</span><span class="params">()</span> </span>&#123;                         <span class="comment">// 新增加的成员函数</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"age: "</span> &lt;&lt; age &lt;&lt; endl;        </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"address: "</span> &lt;&lt; addr &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> age;                                   <span class="comment">// 新增加的数据成员</span></span><br><span class="line">    <span class="built_in">string</span> addr;                               <span class="comment">// 新增加的数据成员</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>在 class 后面的 Student1 是新建的类名。冒号后面的 Student 表示是已声明的基类。在 Student 之前有一个关键字 public，用来表示基类 Student 中的成员在派生类 Student1 中的继承方式。基类名前面有 public 的称为“共用继承（public inheritance）”。</p>
-<p>所以，声明派生类的一般形式为：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> 派生类名 : [继承方式] 基类名</span><br><span class="line">&#123;</span><br><span class="line">    派生类新增加的成员</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+            <p>总是搞不懂 CCS 中如何正确的使用字体，这下明白了。<br><a id="more"></a></p>
+<h3 id="1、什么是-font-face"><a href="#1、什么是-font-face" class="headerlink" title="1、什么是 font-face"></a>1、什么是 font-face</h3><p>font-face 顾名思义，就是文字的脸。字体是文字的外在形式，就是文字的风格，是文字的外衣。比如行书、楷书、草书，都是一种字体。同样一个字每个人写起来都会有差异，可以说每个人都有一套潜在的字体库。对于web页面来说，字体就是计算机上存储的一套文字显示方式。通过对文字进行一些特殊处理（比如末端加强）来提高不同环境中文字的可读性。<br><img src="http://o71mbfad2.bkt.clouddn.com/13_two_font.jpg" alt=""></p>
+<h3 id="2、什么是-font-family"><a href="#2、什么是-font-family" class="headerlink" title="2、什么是 font-family"></a>2、什么是 font-family</h3><p>关于 font-family 的介绍大多数只是说明他可以设置文本中的字体名称序列。其实 font-family 真正的作用是将一系列近似的字体按照优先级顺序组成一个列表，浏览器从第一项开始依次查找，找到第一种可用的字体来显示文字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">font-family: Times New Roman,&#34;open-sans&#34;,&#34;&#24188;&#22278;&#34;,sans-serif</span><br></pre></td></tr></table></figure>
+<p>当浏览器显示一个字符时，会首先从 Times New Roman 中寻找这个字符，如果找到就用 Times New Roman 字体来显示这个字符。如果没找到就去 open-sans 中寻找，如果找到就用该字体显示字符，没找到就会依次寻找下去，如果在通用字体库 sans-serif 中也没有找到就会用一个缺字符代替（通常是小方框）。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">'font-family: Times New Roman,"open-sans","幼圆",sans-serif'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span>&gt;</span>时间就是金钱<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>Time is money.<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>比如上面这段代码，对于汉字部分浏览器会先去 Times New Roman 中查找，没有找到，接着再去 open-sans 中查找，仍然没有找到，继续到“幼圆”中寻找，幼圆中可以找到对应字符则用该字体来显示。对于英文部分可以在 Times New Roman 中寻找则会用该字体来显示。</p>
+<p>font-family 中有时候字体加引号有时候不加引号。区别在于对字体名称中空格的处理不同。不加引号时，忽略字体左右两端的空白字符，单词之间的空白字符被解释为一个空白字符。</p>
+
             
         </div>
     </div>
@@ -228,7 +229,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/23/编程语言/12_C++面向对象设计之命名空间/"  data-tooltip="C++ 面向对象设计之命令空间">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -236,7 +237,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/15/Web笔记/07_Hexo客部署到GitHub/" data-tooltip="Hexo 博客部署到 GitHub">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/23/2016_05_23_09_46_18_C++面向对象设计之命名空间/" data-tooltip="C++ 面向对象设计之命令空间">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -251,17 +252,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/23/2016_05_23_14_38_06_CCSFont知识整理总结/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/23/2016_05_23_14_38_06_CCSFont知识整理总结/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/23/2016_05_23_14_38_06_CCSFont知识整理总结/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -299,7 +300,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/23/编程语言/12_C++面向对象设计之命名空间/"  data-tooltip="C++ 面向对象设计之命令空间">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -307,7 +308,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/15/Web笔记/07_Hexo客部署到GitHub/" data-tooltip="Hexo 博客部署到 GitHub">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/23/2016_05_23_09_46_18_C++面向对象设计之命名空间/" data-tooltip="C++ 面向对象设计之命令空间">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -322,17 +323,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/23/2016_05_23_14_38_06_CCSFont知识整理总结/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/23/2016_05_23_14_38_06_CCSFont知识整理总结/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/23/2016_05_23_14_38_06_CCSFont知识整理总结/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -352,17 +353,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://flyoob.com/2016/05/23/2016_05_23_14_38_06_CCSFont知识整理总结/">
                 <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://flyoob.com/2016/05/23/2016_05_23_14_38_06_CCSFont知识整理总结/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/22/编程语言/11_C++面向对象设计之继承性/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://flyoob.com/2016/05/23/2016_05_23_14_38_06_CCSFont知识整理总结/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>
@@ -413,7 +414,7 @@
 <div id="cover" style="background-image:url('/assets/images/code_for_coffee.jpg');"></div>
     </body>
     <!--SCRIPTS-->
-<script src="/assets/js/scrip-orwni2yufz7xse13wbl5xwp7iz9wt01kawvltsg7zxsncbntkf600cmsy65c.min.js" type="text/javascript"></script>
+<script src="/assets/js/scrip-rquvsp3isddpl6wkxe7fw7ijmwtsk1h7wslua7sdg1rkii97rehkwcqd6v2d.min.js" type="text/javascript"></script>
 <!--SCRIPTS END-->
 
     
